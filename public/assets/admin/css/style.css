@@ -1,0 +1,10 @@
+.color-test {
+    width: 100%;
+    height: 31px;
+    border-radius: 3px;
+}
+.images-form {
+    height: 300px;
+    background-size: cover;
+    background-position: center center;
+}
