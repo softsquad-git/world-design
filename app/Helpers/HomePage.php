@@ -12,9 +12,11 @@ class HomePage
     public static function getDataHomePage()
     {
         $item = \App\Models\GlobalSettings\HomePage::first();
-        $field = json_decode($item->fields);
+        if (!empty($item->fields))
+           return $field = json_decode($item->fields);
 
-        return $field;
+        return false;
+
     }
 
     public static function getDataHomePageItem()
