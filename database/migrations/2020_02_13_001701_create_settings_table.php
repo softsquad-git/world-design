@@ -24,7 +24,7 @@ class CreateSettingsTable extends Migration
             $table->string('phone')->nullable();
             $table->string('location')->nullable();
             $table->string('fb_url')->nullable();
-            $table->boolean('is_logo')->default('on');
+            $table->boolean('is_logo')->default(0);
             $table->timestamps();
         });
     }
