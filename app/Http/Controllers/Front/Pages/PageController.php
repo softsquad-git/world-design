@@ -34,4 +34,9 @@ class PageController extends Controller
     {
         return view('front.pages.404');
     }
+
+    public function contact()
+    {
+        return view('front.pages.contact');
+    }
 }

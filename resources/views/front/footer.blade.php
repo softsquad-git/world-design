@@ -13,7 +13,7 @@
                 <div class="ftco-footer-widget mb-4 ml-md-5">
                     <h2 class="ftco-heading-2">Menu</h2>
                     <ul class="list-unstyled">
-                        @foreach(Page::getPages()->slice(0, 4) as $page)
+                        @foreach(Page::getPagesTop()->slice(0, 4) as $page)
                             <li><a href="{{ route('page', ['alias' => $page->alias]) }}" class="py-2 d-block">{{ $page->title }}</a></li>
                         @endforeach
                     </ul>
@@ -21,15 +21,21 @@
             </div>
             <div class="col-md-4">
                 <div class="ftco-footer-widget mb-4">
-                    <h2 class="ftco-heading-2">Sklpe</h2>
+                    <h2 class="ftco-heading-2">Sklep</h2>
                     <div class="d-flex">
                         <ul class="list-unstyled mr-l-5 pr-l-3 mr-4">
                             <li><a href="{{ route('shops') }}" class="py-2 d-block">Sklep</a></li>
                             <li><a href="{{ route('basket') }}" class="py-2 d-block">Koszyk ({{ Basket::countProductsInBasket() }})</a></li>
                         </ul>
+                        <ul class="list-unstyled">
+                            @foreach(Page::getPagesFooter() as $page)
+                                <li><a href="{{ route('page', ['alias' => $page->alias]) }}" class="py-2 d-block">{{ $page->title }}</a></li>
+                            @endforeach
+                        </ul>
                     </div>
                 </div>
             </div>
+
             <div class="col-md">
                 <div class="ftco-footer-widget mb-4">
                     <h2 class="ftco-heading-2">Masz pytania?</h2>

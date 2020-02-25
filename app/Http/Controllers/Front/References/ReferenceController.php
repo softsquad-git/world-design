@@ -32,11 +32,20 @@ class ReferenceController extends Controller
         $items = $this->repository->items();
 
         return view('front.references.list', [
-            'items' => $items
+            'data' => $items
         ]);
     }
 
-    public function update(ReferenceRequest $request, $token)
+    public function edit($token)
+    {
+        $item = $this->repository->find($token);
+        if (!empty($token) && $item->status == Status::REFERENCE_STATUS_NEW)
+            return view('front.references.form', ['token' => $token]);
+
+        return Redirections::redirectToError($this->toMethod);
+    }
+
+    public function store(ReferenceRequest $request, $token)
     {
         $item = $this->repository->find($token);
         if (!empty($item) && $item->status == Status::REFERENCE_STATUS_NEW)

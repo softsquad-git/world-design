@@ -2,8 +2,8 @@
     <div class="overlay"></div>
     <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">
-            <h3 class="v">Modist - Time to get dress</h3>
-            <h3 class="vr">Since - 1985</h3>
+            <h3 class="v">{{ HomePage::getTxtLeft() }}</h3>
+            <h3 class="vr">{{ HomePage::getTxtRight() }}</h3>
             <div class="col-md-11 ftco-animate text-center">
                 <h1>{{ Setting::getHomePageTitle() }}</h1>
                 <h2><span>{{ Setting::getHomePageIntro() }}</span></h2>

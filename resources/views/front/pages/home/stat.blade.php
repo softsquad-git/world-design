@@ -6,32 +6,32 @@
                     <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
                         <div class="block-18 text-center">
                             <div class="text">
-                                <strong class="number" data-number="10000">0</strong>
-                                <span>Lat</span>
+                                <strong class="number" data-number="{{ HomePage::getInfoVOne() }}">0</strong>
+                                <span>{!! HomePage::getInfoTOne() !!}</span>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
                         <div class="block-18 text-center">
                             <div class="text">
-                                <strong class="number" data-number="100">0</strong>
-                                <span>Produktów</span>
+                                <strong class="number" data-number="{{ HomePage::getInfoVTwo() }}">0</strong>
+                                <span>{!! HomePage::getInfoTTwo() !!}</span>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
                         <div class="block-18 text-center">
                             <div class="text">
-                                <strong class="number" data-number="1000">0</strong>
-                                <span>Zamówień</span>
+                                <strong class="number" data-number="{{ HomePage::getInfoVThree() }}">0</strong>
+                                <span>{!! HomePage::getInfoTThree() !!}</span>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
                         <div class="block-18 text-center">
                             <div class="text">
-                                <strong class="number" data-number="100">0</strong>
-                                <span>Zadowolonych klientów</span>
+                                <strong class="number" data-number="{{ HomePage::getInfoVFour() }}">0</strong>
+                                <span>{!! HomePage::getInfoTFour() !!}</span>
                             </div>
                         </div>
                     </div>

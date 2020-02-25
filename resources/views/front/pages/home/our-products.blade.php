@@ -2,8 +2,8 @@
     <div class="container">
         <div class="row justify-content-center mb-3 pb-3">
             <div class="col-md-12 heading-section text-center ftco-animate">
-                <h1 class="big">Produkty</h1>
-                <h2 class="mb-4">Nasze produkty</h2>
+                <h1 class="big">{{ HomePage::getTitleSecond() }}</h1>
+                <h2 class="mb-4">{{ HomePage::getTitleSecond() }}</h2>
             </div>
         </div>
     </div>

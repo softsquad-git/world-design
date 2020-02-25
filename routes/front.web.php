@@ -43,6 +43,9 @@ Route::group(['prefix' => 'references'], function (){
     Route::get('/', 'Front\References\ReferenceController@items')
         ->name('references');
 
+    Route::get('create/{token}', 'Front\References\ReferenceController@edit')
+        ->name('edit.references');
+
     Route::post('update/{token}', 'Front\References\ReferenceController@store')
         ->name('store.references');
 });

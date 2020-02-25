@@ -56,6 +56,11 @@ Route::group(['prefix' => 'admin'], function (){
         Route::post('store', 'Admin\Pages\PageController@store');
         Route::post('update/{id}', 'Admin\Pages\PageController@update');
         Route::post('upload-file', 'Admin\Pages\PageController@uploadFileContent');
+        Route::group(['prefix' => 'hp'], function (){
+            Route::get('/', 'Admin\Pages\HomePageController@form');
+            Route::post('form', 'Admin\Pages\HomePageController@store');
+            Route::post('form/{id}', 'Admin\Pages\HomePageController@update');
+        });
     });
     Route::group(['prefix' => 'checkouts'], function (){
         Route::get('/', 'Admin\CheckOuts\CheckOutController@items');

@@ -15,20 +15,20 @@
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active"><a href="{{ route('home') }}" class="nav-link">Strona główna</a></li>
                 <li class="nav-item"><a href="{{ route('shops') }}" class="nav-link">Sklep</a></li>
-                @foreach(Page::getPages()->slice(0, 2) as $page)
+                @foreach(Page::getPagesTop()->slice(0, 2) as $page)
                     <li class="nav-item"><a href="{{ route('page', ['alias' => $page->alias]) }}" class="nav-link">{{ $page->title }}</a></li>
                 @endforeach
-                @if(Page::getPages()->count() > 2)
+                @if(Page::getPagesTop()->count() > 2)
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="page" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-newspaper"></i></a>
                         <div class="dropdown-menu" aria-labelledby="page">
-                            @foreach(Page::getPages()->slice(2, 100) as $page)
+                            @foreach(Page::getPagesTop()->slice(2, 100) as $page)
                                 <a class="dropdown-item" href="{{ route('page', ['alias' => $page->alias]) }}">{{ $page->title }}</a>
                             @endforeach
                         </div>
                     </li>
                 @endif
-                <li class="nav-item"><a href="contact.html" class="nav-link">Kontakt</a></li>
+                <li class="nav-item"><a href="{{ route('contact') }}" class="nav-link">Kontakt</a></li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="auth" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i></a>
                     <div class="dropdown-menu" aria-labelledby="auth">

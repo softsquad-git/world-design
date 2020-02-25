@@ -26,9 +26,9 @@
             <div class="col-lg-4">
                 <label for="category">Kategoria</label>
                 <select id="category" name="category_id" class="form-control-sm form-control">
-                    <option value="" selected>Wybierz kategorię</option>
+                    <option value=""{{ (old('category_id')=='0' || $item->category_id=='0') ? ' selected="selected"' : '' }} selected>Wybierz kategorię</option>
                     @foreach($categories as $category)
-                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        <option value="{{ $category->id }}"{{ (old('category_id')==$category->id || $item->category_id==$category->id) ? ' selected="selected"' : '' }}>{{ $category->name }}</option>
                     @endforeach
                 </select>
             </div>
@@ -83,8 +83,8 @@
             <div class="col-lg-4">
                 <label for="availability">Czy produkt jest dostępny?</label>
                 <select id="availability" class="form-control form-control-sm" name="availability">
-                    <option value="1">TAK</option>
-                    <option value="0">NIE</option>
+                    <option value="1" {{ (old('availability') == '1' || $item->availability == '1') ? ' selected="selected"' : '1' }}>TAK</option>
+                    <option value="0" {{ (old('availability') == '0' || $item->availability == '0') ? ' selected="selected"' : '0' }}>NIE</option>
                 </select>
             </div>
         </div>
@@ -92,15 +92,15 @@
             <div class="col-lg-4">
                 <label for="is_promo">Czy produkt jest w promocji?</label>
                 <select id="is_promo" class="form-control form-control-sm" name="is_promo">
-                    <option value="0">NIE</option>
-                    <option value="1">TAK</option>
+                    <option value="0" {{ (old('is_promo') == '0' || $item->is_promo == '0') ? ' selected="selected"' : '0' }}>NIE</option>
+                    <option value="1" {{ (old('is_promo') == '1' || $item->is_promo == '1') ? ' selected="selected"' : '1' }}>TAK</option>
                 </select>
             </div>
             <div id="is-news" class="col-lg-4">
                 <label for="is_news">Czy produkt jest nowością?</label>
                 <select id="is_news" class="form-control form-control-sm" name="is_news">
-                    <option value="0">NIE</option>
-                    <option value="1">TAK</option>
+                    <option value="0" {{ (old('is_news') == '0' || $item->is_news == '0') ? ' selected="selected"' : '0' }}>NIE</option>
+                    <option value="1" {{ (old('is_news') == '1' || $item->is_news == '1') ? ' selected="selected"' : '1' }}>TAK</option>
                 </select>
             </div>
             <div id="old-price" class="col-lg-4">

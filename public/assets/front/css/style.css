@@ -9135,3 +9135,18 @@ textarea.form-control {
     cursor: pointer;
     color: #8e8989;
 }
+.references {
+    border: 1px solid #f1e6e6;
+    margin-bottom: 15px;
+    border-radius: 3px;
+    padding: 10px;
+}
+.references .footer {
+    border-top: 1px solid #f1e6e6;
+    padding: 8px 0 0;
+    margin-top: 5px;
+    font-size: 12px;
+}
+.references .content {
+    color: #424141;
+}

@@ -12,6 +12,7 @@ class ProductRepository
 
     public function trending(){
         $items = Product::orderBy('views', 'DESC')
+            ->where('status', '!=', Status::PRODUCT_STATUS_LACK)
             ->limit(5)
             ->get();
 
@@ -21,6 +22,7 @@ class ProductRepository
     public function our_products()
     {
         $items = Product::orderBy('created_at', 'DESC')
+            ->where('status', '!=', Status::PRODUCT_STATUS_LACK)
             ->limit(4)
             ->get();
 

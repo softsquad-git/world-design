@@ -11,14 +11,15 @@ class BuyProductMail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $item;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($item)
     {
-
+        $this->item = $item;
     }
 
     /**
@@ -28,6 +29,6 @@ class BuyProductMail extends Mailable
      */
     public function build()
     {
-        return $this->view('email.admin.checkout.success');
+        return $this->view('emails.admin.checkout.success');
     }
 }

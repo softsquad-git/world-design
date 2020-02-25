@@ -46,7 +46,7 @@ class ReferenceController extends Controller
         return Redirections::redirectToError($this->toMethod);
     }
 
-    public function update($id)
+    public function accept($id)
     {
         $item = $this->repository->find($id);
         if (!empty($item)){

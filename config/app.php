@@ -228,7 +228,8 @@ return [
         'Status' => \App\Helpers\Status::class,
         'Setting' => \App\Helpers\GlobalSetting::class,
         'Basket' => \App\Helpers\Basket::class,
-        'Page' => \App\Helpers\Page::class
+        'Page' => \App\Helpers\Page::class,
+        'HomePage' => \App\Helpers\HomePage::class
 
     ],
 
@@ -239,7 +240,7 @@ return [
         'fb' => env('AUTHOR_FB', 'https://www.facebook.com/softsquadstudio/')
     ],
     'df' => [
-        //
+        'email' => env('ADMIN_EMAIL', 'biuro@softsquad.pl')
     ],
     'meta' => [
         'title' => config('TITLE_PAGE', 'WORLD DESIGN'),

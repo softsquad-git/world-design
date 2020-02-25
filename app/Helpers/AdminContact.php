@@ -8,10 +8,10 @@ use Illuminate\Support\Facades\Mail;
 class AdminContact
 {
 
-    public static function buyProduct()
+    public static function buyProduct($item)
     {
         Mail::to(GlobalSetting::getEmail())
-            ->send(new BuyProductMail());
+            ->send(new BuyProductMail($item));
     }
 
 }

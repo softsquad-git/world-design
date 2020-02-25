@@ -58,8 +58,8 @@ class CheckOutService
         $item = CheckOut::create($data);
 
         ReferenceService::store($item->email);
-        //Mail::to($item->email)->send(new SuccessCheckOut($item));
-        //AdminContact::buyProduct();
+        Mail::to($item->email)->send(new SuccessCheckOut($item));
+        AdminContact::buyProduct($item);
 
         return $item;
     }

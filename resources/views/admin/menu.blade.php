@@ -37,7 +37,7 @@
                     <a class="dropdown-item" href="{{ action('Admin\Pages\PageController@items') }}">Lista</a>
                     <a class="dropdown-item" href="{{ action('Admin\Pages\PageController@create') }}">Dodaj</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Strony statyczne</a>
+                    <a class="dropdown-item" href="{{ action('Admin\Pages\HomePageController@form') }}">Strona główna</a>
                 </div>
             </li>
 {{--            <li class="nav-item dropdown">--}}
@@ -67,9 +67,6 @@
                     <a class="dropdown-item" href="{{ action('Admin\Categories\CategoryController@items') }}">Lista</a>
                     <a class="dropdown-item" href="{{ action('Admin\Categories\CategoryController@create') }}">Dodaj</a>
                 </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Wiadomości</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ action('Admin\References\ReferenceController@items') }}">Referencje</a>
