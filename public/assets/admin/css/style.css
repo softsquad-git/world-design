@@ -8,3 +8,23 @@
     background-size: cover;
     background-position: center center;
 }
+.stat-admin {
+    border: 1px solid #d8d8d8;
+    height: 150px;
+    margin-bottom: 30px;
+    border-radius: 2px;
+    line-height: 135px;
+    padding: 10px;
+    font-size: 23px;
+    text-transform: uppercase;
+    font-weight: 300!important;
+    color: #545454;
+    box-shadow: 0px 2px 5px 0px rgba(177, 177, 177, 0.75);
+}
+.messages {
+    width: 900px;
+    margin: auto auto;
+    padding: 22px;
+    top: 10px;
+    box-shadow: 0px 4px 5px 0px rgba(189,189,189,1);
+}

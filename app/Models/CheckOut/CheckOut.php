@@ -2,6 +2,7 @@
 
 namespace App\Models\CheckOut;
 
+use App\Models\Products\Product;
 use Illuminate\Database\Eloquent\Model;
 
 class CheckOut extends Model
@@ -12,18 +13,21 @@ class CheckOut extends Model
         'user_id',
         'product_ids',
         'name',
-        'last_name',
         'post_code',
         'city',
-        'street',
-        'number_home',
-        'number_local',
+        'address',
         'email',
-        'number_phone',
         'total_price',
         'shipment',
         'size',
         'status',
-        'quantity'
+        'quantity',
+        'country'
     ];
+
+    public function products()
+    {
+        return $this->hasMany(Product::class, 'id')
+            ->whereIn('id', $this->product_ids);
+    }
 }

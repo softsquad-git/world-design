@@ -24,7 +24,13 @@ class CheckOutRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|min:3',
+            'post_code' => 'required|string',
+            'city' => 'required|string|min:3',
+            'address' => 'required|string|min:3',
+            'email' => 'required|email',
+            'shipment' => 'required',
+            'country' => 'required|min:3|string'
         ];
     }
 }

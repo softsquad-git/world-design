@@ -11,21 +11,6 @@ class Basket
 
     const products = 0;
 
-    public static function addProductToBasket($products)
-    {
-
-       dd(self::getProductsFromBasket(), $products);
-    }
-
-    public static function removeProductInBasket($id)
-    {
-
-    }
-
-    public static function getProductsFromBasket()
-    {
-        return Session::get('products');
-    }
 
     public static function countProductsInBasket()
     {
@@ -33,7 +18,7 @@ class Basket
             return count(\App\Models\Basket\Basket::where('user_id', Auth::id())->get());
         }
 
-        return 1;
+        return count(\App\Models\Basket\Basket::where('local_id', Session::get('local_id'))->get());
     }
 
 }

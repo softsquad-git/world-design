@@ -24,7 +24,8 @@ class ReferenceRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|min:3',
+            'reference' => 'required|min:3|max:400'
         ];
     }
 }

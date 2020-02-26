@@ -71,4 +71,6 @@ Route::group(['prefix' => 'admin'], function (){
         Route::get('remove/{id}', 'Admin\References\ReferenceController@delete');
         Route::get('accept/{id}', 'Admin\References\ReferenceController@accept');
     });
+
+    Route::get('newsletter', 'Admin\Newsletters\NewsletterController@items');
 });

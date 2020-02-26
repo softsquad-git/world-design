@@ -18,19 +18,16 @@ class CreateCheckoutTable extends Migration
             $table->integer('user_id')->nullable()->index();
             $table->text('product_ids');
             $table->string('name');
-            $table->string('last_name');
             $table->string('post_code');
             $table->string('city');
-            $table->string('street');
-            $table->string('number_home');
-            $table->string('number_local')->nullable();
+            $table->string('address');
             $table->string('email');
-            $table->string('number_phone');
             $table->decimal('total_price');
             $table->string('shipment');
             $table->string('status');
             $table->string('size');
             $table->integer('quantity');
+            $table->string('country');
             $table->timestamps();
         });
     }

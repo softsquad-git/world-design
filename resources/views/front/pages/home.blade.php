@@ -9,5 +9,4 @@
     @include('front.pages.home.our-products', ['data' => $our_products])
     @include('front.pages.home.testimony', ['data' => $references])
     @include('front.pages.home.stat')
-    @include('front.pages.home.newsletter')
 @endsection

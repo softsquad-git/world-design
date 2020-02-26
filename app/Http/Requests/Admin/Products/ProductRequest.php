@@ -29,8 +29,11 @@ class ProductRequest extends FormRequest
         $data['price'] = 'required';
         $data['description'] = 'required|min:10';
         $data['content'] = 'required|min:50';
-        $data['colors'] = 'array|nullable';
-        $data['sizes'] = 'array|nullable';
+        if ($this->get('item') > 0){
+            $data['sizes'] = 'array|nullable';
+        }else{
+            $data['sizes'] = 'array|required';
+        }
         $data['quantity'] = 'required|numeric';
         $data['availability'] = 'required|integer';
         if ($this->get('is_promo') == 1){

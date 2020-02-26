@@ -9150,3 +9150,15 @@ textarea.form-control {
 .references .content {
     color: #424141;
 }
+.messages {
+    width: 900px;
+    margin: auto auto;
+    padding: 22px;
+    top: 10px;
+    box-shadow: 0px 4px 5px 0px rgba(189,189,189,1);
+    text-align: center;
+    background: #fff;
+    z-index: 1;
+    font-size: 16px;
+    color: #b77da3;
+}

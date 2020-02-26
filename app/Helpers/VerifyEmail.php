@@ -37,9 +37,9 @@ class VerifyEmail
             return false;
         }
 
-        self::removeKey();
         return true;
     }
+
 
     private static function generateKey()
     {
@@ -57,10 +57,15 @@ class VerifyEmail
     }
 
     private static function getKeyDB($user_id){
-        return Verify::where('user_id', $user_id)->first();
+        $key = Verify::where('user_id', $user_id)->first();
+        if (!empty($key)){
+            return $key;
+        }
+
+        return false;
     }
 
-    private static function removeKey()
+    public static function removeKey()
     {
         $key = self::getKeyDB(Auth::id());
         if (isset($key->id) && $key->id > 0)

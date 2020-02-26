@@ -49,3 +49,9 @@ Route::group(['prefix' => 'references'], function (){
     Route::post('update/{token}', 'Front\References\ReferenceController@store')
         ->name('store.references');
 });
+Route::group(['prefix' => 'newsletter'], function (){
+    Route::post('save', 'Front\Newsletters\NewsletterController@store')
+        ->name('newsletter.save');
+    Route::get('remove/{email}', 'Front\Newsletters\NewsletterController@delete')
+        ->name('newsletter.remove');
+});

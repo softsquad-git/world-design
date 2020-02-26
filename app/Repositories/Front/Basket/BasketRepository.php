@@ -4,30 +4,32 @@ namespace App\Repositories\Front\Basket;
 
 use App\Models\Basket\Basket;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class BasketRepository
 {
 
     public function items()
     {
-        if (Auth::check())
-        {
+        if (Auth::check()) {
             $items = Basket::where('user_id', Auth::id())
                 ->get();
 
-            $total_price = 0;
+        } else {
+            $items = Basket::where('local_id', Session::get('local_id'))
+                ->get();
+        }
+        $total_price = 0;
 
-            foreach ($items as $item)
-            {
-                $total_price += $item->product->price * $item->quantity;
-            }
-
-            $items->total_price = $total_price;
-
-            return $items;
+        foreach ($items as $item) {
+            $total_price += $item->product->price * $item->quantity;
         }
 
-        return [];
+        $items->total_price = $total_price;
+
+        return $items;
+
+
     }
 
     public function find($id)

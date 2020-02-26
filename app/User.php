@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Models\CheckOut\CheckOut;
 use App\Models\Messages\Message;
 use App\Models\Products\Product;
 use App\Models\Users\Contact;
@@ -49,5 +50,10 @@ class User extends Authenticatable
     public function messages()
     {
         return $this->hasMany(Message::class, 'email_from', 'email');
+    }
+
+    public function orders()
+    {
+        return $this->hasMany(CheckOut::class, 'user_id', 'id');
     }
 }

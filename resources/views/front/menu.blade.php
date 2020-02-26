@@ -34,9 +34,9 @@
                     <div class="dropdown-menu" aria-labelledby="auth">
                         @auth
                             @if(Auth::user()->role == 'R_ADMIN')
-                                <a class="dropdown-item" href="{{ route('admin') }}">Konto</a>
+                                <a class="dropdown-item" href="{{ route('admin') }}">{{ Auth::user()->name }}</a>
                             @else
-                                <a class="dropdown-item" href="">Konto</a>
+                                <a class="dropdown-item" href="{{ route('user.profile') }}">{{ Auth::user()->name }}</a>
                             @endif
                             <form method="post" action="{{ route('logout') }}">
                                 @csrf

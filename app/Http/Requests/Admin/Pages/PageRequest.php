@@ -23,8 +23,16 @@ class PageRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            //
-        ];
+        $data = [];
+        $data['title'] = 'required|string';
+        if ($this->get('item') > 0){
+            $data['alias'] = 'required|string';
+        }else{
+            $data['alias'] = 'required|string|unique:pages';
+        }
+        $data['content'] = 'required';
+        $data['menu_position'] = 'required|integer';
+
+        return $data;
     }
 }

@@ -15,7 +15,8 @@ class Basket extends Model
         'product_id',
         'size',
         'colors',
-        'quantity'
+        'quantity',
+        'local_id'
     ];
 
     public function user()

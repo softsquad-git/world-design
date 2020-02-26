@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\ActivatedAccountMiddleware;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -62,7 +63,8 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'admin' => Middleware\AdminAccountMiddleware::class,
-        'activated' => Middleware\ActivatedAccountMiddleware::class
+        'activated' => Middleware\ActivatedAccountMiddleware::class,
+        'local_id' => Middleware\LocalIDSession::class
     ];
 
     /**

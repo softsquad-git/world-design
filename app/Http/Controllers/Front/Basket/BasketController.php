@@ -39,7 +39,12 @@ class BasketController extends Controller
     }
 
     public function store(BasketRequest $request){
-        $this->service->store($request->all());
+        $products = [
+            'product_id' => $request->product_id,
+            'size' => $request->size,
+            'quantity' => $request->quantity
+        ];
+        $this->service->store($products);
 
         return redirect()->back();
     }

@@ -24,7 +24,9 @@ class BasketRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'product_id' => 'required|integer',
+            'size' => 'required',
+            'quantity' => 'required|integer'
         ];
     }
 }

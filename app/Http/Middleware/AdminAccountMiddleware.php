@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Support\Facades\Auth;
 
 class AdminAccountMiddleware
 {
@@ -15,6 +16,9 @@ class AdminAccountMiddleware
      */
     public function handle($request, Closure $next)
     {
+        if (Auth::check() && Auth::user()->role != 'R_ADMIN'){
+            return redirect()->route('home')->with('message', trans('front.admin.error'));
+        }
         return $next($request);
     }
 }

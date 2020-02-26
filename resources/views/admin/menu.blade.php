@@ -75,7 +75,7 @@
                 <a class="nav-link" href="{{ action('Admin\Settings\SettingController@form') }}">Ustawienia</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Newsletter</a>
+                <a class="nav-link" href="{{ action('Admin\Newsletters\NewsletterController@items') }}">Newsletter</a>
             </li>
         </ul>
     </div>

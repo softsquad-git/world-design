@@ -21,4 +21,13 @@ class OrderController extends Controller
         $this->repository = $repository;
         $this->service = $service;
     }
+
+    public function items()
+    {
+        $items = $this->repository->items();
+
+        return view('user.products', [
+            'items' => $items
+        ]);
+    }
 }

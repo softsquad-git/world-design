@@ -13,7 +13,7 @@ class ActivateRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,7 @@ class ActivateRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'key' => 'required|string|min:15|max:15'
         ];
     }
 }

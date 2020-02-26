@@ -98,8 +98,8 @@ class PageController extends Controller
         $CKEditor = $request->input('CKEditor');
         $funcNum  = $request->input('CKEditorFuncNum');
         $message  = $url = '';
-        if (Input::hasFile('upload')) {
-            $file = Input::file('upload');
+        if ($request->hasFile('upload')) {
+            $file = $request->file('upload');
             if ($file->isValid()) {
                 $filename =rand(1000,9999).$file->getClientOriginalName();
                 $file->move(public_path().'/wysiwyg/', $filename);
