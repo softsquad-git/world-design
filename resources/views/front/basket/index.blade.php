@@ -45,7 +45,9 @@
                                         </td>
 
                                         <td class="product-name">
-                                            <h3><a href="{{ route('product', ['id' => $product->product_id]) }}">{{ $product->product->title }}</a></h3>
+                                            <h3>
+                                                <a href="{{ route('product', ['id' => $product->product_id]) }}">{{ $product->product->title }}</a>
+                                            </h3>
                                             {!! substr($product->product->description, 0, 100)  !!}
                                         </td>
 
@@ -77,16 +79,35 @@
                             <span>${{ $products->total_price }}</span>
                         </p>
                     </div>
-                    <p class="text-center"><a href="checkout.html" class="btn btn-primary py-3 px-4">Proceed to
-                            Checkout</a></p>
+                    <p id="ch-btn" class="text-center"><span class="btn btn-primary py-3 px-4">Złóż zamówienie</span></p>
+                    <p id="ch-v-btn" class="text-center"><span class="btn btn-primary py-3 px-4">Anuluj</span></p>
                 </div>
             </div>
-            @include('front.basket.checkout')
-                    @else
-                        <div class="alert alert-danger w-100 text-center">
-                            Brak produktów w koszyku <a href="{{ route('shops') }}">przejdź do sklepu</a>
-                        </div>
-                    @endif
+            <span id="checkout-view">@include('front.basket.checkout')</span>
+            @else
+                <div class="alert alert-danger w-100 text-center">
+                    Brak produktów w koszyku <a href="{{ route('shops') }}">przejdź do sklepu</a>
+                </div>
+            @endif
         </div>
     </section>
 @endsection
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function(){
+        $('#checkout-view').hide();
+        $('#ch-v-btn').hide();
+        $('#ch-btn').click(function () {
+            $('#checkout-view').show();
+            $('#ch-btn').hide();
+            $('#ch-v-btn').show();
+        });
+        $('#ch-v-btn').click(function () {
+            $('#checkout-view').hide();
+            $('#ch-v-btn').hide();
+            $('#ch-btn').show();
+        });
+    });
+</script>

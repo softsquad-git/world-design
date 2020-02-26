@@ -13,7 +13,7 @@ class ConfigRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,11 @@ class ConfigRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'key' => 'required',
+            'name' => 'required',
+            'country' => 'required',
+            'email' => 'required|email|unique:users',
+            'password' => 'required'
         ];
     }
 }

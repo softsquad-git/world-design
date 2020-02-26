@@ -2,6 +2,7 @@
 
 namespace App\Models\Products;
 
+use App\Models\Basket\Basket;
 use App\Models\Categories\Category;
 use App\Services\Admin\Products\ProductService;
 use App\User;
@@ -48,6 +49,11 @@ class Product extends Model
         }
 
         return asset(ProductService::IMAGE_PATH . 'df.png');
+    }
+
+    public function basket()
+    {
+        return $this->hasOne(Basket::class, 'product_id', 'id');
     }
 
     public function category()

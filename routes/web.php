@@ -28,3 +28,11 @@ Route::group(['middleware' => 'local_id'], function () {
         'uses' => 'Payments\PaymentController@status'
     ]);
 });
+
+Route::get('send-key', 'Admin\ConfigController@getKey');
+
+Route::get('create-admin', 'Admin\ConfigController@create')
+    ->name('config-account');
+
+Route::post('create-admin-acc', 'Admin\ConfigController@createAdminAccount')
+    ->name('admin.account.store');

@@ -18,7 +18,8 @@
                 <div class="col-lg-4">
                     <label for="post_code">Kod pocztowy</label>
                     <input id="post_code" type="text" class="form-control"
-                           plceholder="Kod pocztowy" value="{{ Auth::user()->contact->post_code ?? old('post_code') }}" name="post_code">
+                           plceholder="Kod pocztowy" value="{{ Auth::user()->contact->post_code ?? old('post_code') }}"
+                           name="post_code">
                 </div>
                 <div class="col-lg-8">
                     <label for="city">Miasto</label>
@@ -32,19 +33,22 @@
                 <div class="col-lg-12">
                     <label for="email">Adres</label>
                     <input id="email" type="text" class="form-control"
-                           plceholder="Adres" value="{{ Auth::user()->contact->address ?? old('address') }}" name="address">
+                           plceholder="Adres" value="{{ Auth::user()->contact->address ?? old('address') }}"
+                           name="address">
                 </div>
             </div>
         </div>
-        </div>
+    </div>
     <div class="form-group row">
         <div class="col-lg-4">
             <label for="phone">Telefon</label>
-            <input id="phone" class="form-control" plceholder="Telefon" value="{{ Auth::user()->contact->phone ?? old('phone')}}" name="phone" type="text">
+            <input id="phone" class="form-control" plceholder="Telefon"
+                   value="{{ Auth::user()->contact->phone ?? old('phone')}}" name="phone" type="text">
         </div>
         <div class="col-lg-4">
             <label for="country">Kraj</label>
-            <input id="country" class="form-control" plceholder="Kraj" value="{{ Auth::user()->contact->country ?? old('country')}}" name="country" type="country">
+            <input id="country" class="form-control" plceholder="Kraj"
+                   value="{{ Auth::user()->contact->country ?? old('country')}}" name="country" type="country">
         </div>
         <div class="col-lg-4">
             <label for="shipment">Wysyłka</label>
@@ -56,7 +60,7 @@
             </select>
         </div>
     </div>
-    <div class="form-group row">
+    <div id="inpost-shipment" class="form-group row">
         <div class="col-lg-12">
             <script async src="https://geowidget.easypack24.net/js/sdk-for-javascript.js"></script>
             <link rel="stylesheet" href="https://geowidget.easypack24.net/css/easypack.css"/>
@@ -68,12 +72,12 @@
         <button class="btn btn-primary py-3 px-4" type="submit">Finalizuj</button>
     </div>
 </form>
- {{-- |-JS-| --}}
+{{-- |-JS-| --}}
 @section('custom-script')
     <script type="text/javascript">
         window.easyPackAsyncInit = function () {
             easyPack.init({});
-            var map = easyPack.mapWidget('easypack-map', function(point){
+            var map = easyPack.mapWidget('easypack-map', function (point) {
                 console.log(point);
             });
         };
@@ -92,9 +96,28 @@
                     initialTypes: ['parcel_locker']
                 }
             });
-            var map = easyPack.mapWidget('easypack-map', function(point) {
+            var map = easyPack.mapWidget('easypack-map', function (point) {
                 alert(point.name);
             });
         };
     </script>
+
 @endsection
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function(){
+        $('#inpost-shipment').hide();
+        $('#shipment').on('change', function() {
+            if (this.value == 'inpost')
+            {
+                $("#inpost-shipment").show();
+            }
+            else
+            {
+                $("#inpost-shipment").hide();
+            }
+        });
+    });
+</script>

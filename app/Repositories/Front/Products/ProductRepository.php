@@ -43,7 +43,9 @@ class ProductRepository
 
     public function find($id)
     {
-        return Product::find($id);
+        return Product::where('id', $id)
+            ->where('status', '!=', Status::PRODUCT_STATUS_LACK)
+            ->first();
     }
 
     public function show($item)

@@ -75,6 +75,7 @@
     </svg>
 </div>
 
+@yield('scripts')
 
 <script src="{{ asset('assets/front/js/jquery.min.js') }}"></script>
 <script src="{{ asset('assets/front/js/jquery-migrate-3.0.1.min.js') }}"></script>

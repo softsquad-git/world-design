@@ -232,6 +232,7 @@ return [
         'HomePage' => \App\Helpers\HomePage::class
 
     ],
+    'base_url' => 'michallosak@gmail.com',
 
     'author' => [
         'name' => env('AUTHOR_NAME', 'SoftSquad'),

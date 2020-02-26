@@ -15,6 +15,8 @@ class CreateConfigTable extends Migration
     {
         Schema::create('config', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->boolean('is')->default(0);
+            $table->string('key_admin');
             $table->timestamps();
         });
     }

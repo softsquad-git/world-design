@@ -44,7 +44,7 @@ Route::group(['prefix' => 'admin'], function (){
     });
     Route::group(['prefix' => 'settings'], function (){
         Route::get('/', 'Admin\Settings\SettingController@form');
-        Route::post('form', 'Admin\Settings\SettingController@store');
+        Route::post('store', 'Admin\Settings\SettingController@store');
         Route::post('form', 'Admin\Settings\SettingController@update');
     });
     Route::group(['prefix' => 'pages'], function (){

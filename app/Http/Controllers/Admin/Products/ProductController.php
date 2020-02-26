@@ -49,8 +49,8 @@ class ProductController extends Controller
     {
         $item = $this->repository->find($id);
         if (isset($item->id) && $item->id > 0) {
-            return view('admin.products.show', [
-                'item' => $item
+            return view('front.shops.product', [
+                'product' => $item
             ]);
         }
 
