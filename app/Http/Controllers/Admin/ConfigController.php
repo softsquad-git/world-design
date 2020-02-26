@@ -43,6 +43,8 @@ class ConfigController extends Controller
         if (empty($keyDB))
             return redirect()->action('Admin\ConfigController@create');
         $user = $request->only(['name', 'email', 'password']);
+        $user['role'] = 'R_ADMIN';
+        $user['activated'] = 1;
         $user['password'] = Hash::make($user['password']);
         $contact = $request->only(['city', 'address', 'post_code', 'phone', 'country']);
 
