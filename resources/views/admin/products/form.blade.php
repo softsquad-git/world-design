@@ -106,7 +106,7 @@
             <div id="old-price" class="col-lg-4">
                 <label for="availability">Poprzednia cena</label>
                 <input id="old_price" class="form-control-sm form-control" value="{{ old('old_price') ? old('old_price') : $item->old_price }}"
-                       placeholder="Poprzednia cena" type="number" step="0.01">
+                       placeholder="Poprzednia cena" name="old_price" type="number" step="0.01">
             </div>
         </div>
         <div class="form-group">
