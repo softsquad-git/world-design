@@ -36,10 +36,6 @@
                                 </div>
                             </div>
                             <hr>
-                            <p class="bottom-area d-flex">
-                                <a href="#" class="add-to-cart"><span>Dodaj do koszyka<i class="ion-ios-add ml-1"></i></span></a>
-                                <a href="#" class="ml-auto"><span><i class="ion-ios-heart-empty"></i></span></a>
-                            </p>
                         </div>
                     </div>
                 </div>
