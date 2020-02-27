@@ -3,16 +3,18 @@
 Route::group(['middleware' => 'local_id'], function () {
     Auth::routes();
 
-    Route::group(['middleware' => ['auth', 'activated']], function () {
+    Route::group(['middleware' => ['auth']], function () {
         Route::get('activate', 'Auth\ActivateController@activate');
 
-        Route::post('activate', 'Auth\ActivateController@activateAccount')
+        Route::post('activate-account', 'Auth\ActivateController@activateAccount')
             ->name('activate_account');
 
-        include 'user.web.php';
+        Route::group(['middleware' => 'activated'], function (){
+            include 'user.web.php';
 
-        Route::group(['middleware' => 'admin'], function () {
-            include 'admin.web.php';
+            Route::group(['middleware' => 'admin'], function () {
+                include 'admin.web.php';
+            });
         });
     });
 

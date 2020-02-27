@@ -26,7 +26,7 @@ class ActivateController extends Controller
                 ]);
             VerifyEmail::removeKey();
 
-            return redirect()->back()->with('front.activate.success');
+            return redirect()->route('home')->with('front.activate.success');
         }
 
         return redirect()->back()
