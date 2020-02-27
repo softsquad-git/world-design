@@ -30,7 +30,7 @@ class ActivateController extends Controller
 
             Mail::to(Auth::user()->email)->send(new SuccessRegisterMail());
 
-            return redirect()->route('home')->with('front.activate.success');
+            return redirect()->route('home')->with('message', trans('front.activate.success'));
         }
 
         return redirect()->back()
