@@ -19,7 +19,7 @@ class CheckOutService
 
     public function store(array $data)
     {
-        $shipment = 0;
+        $shipment = $data['shipment'];
         $product_ids = [];
         if (Auth::check()) {
             $data['user_id'] = Auth::id();
