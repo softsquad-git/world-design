@@ -14,7 +14,7 @@ class CreateShipmentPriceTable extends Migration
     public function up()
     {
         Schema::create('shipment_price', function (Blueprint $table) {
-            $table->bigIncrements('id')->default(5);
+            $table->bigIncrements('id');
             $table->decimal('dpd_classic')->nullable();
             $table->decimal('dpd_download')->nullable();
             $table->decimal('inpost_classic')->nullable();
