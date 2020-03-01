@@ -98,6 +98,7 @@
       <path value="$PROJECT_DIR$/vendor/sabre/xml" />
       <path value="$PROJECT_DIR$/vendor/sabre/uri" />
       <path value="$PROJECT_DIR$/vendor/tzsk/payu" />
+      <path value="$PROJECT_DIR$/vendor/softon/indipay" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />

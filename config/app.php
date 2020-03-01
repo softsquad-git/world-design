@@ -229,7 +229,8 @@ return [
         'Setting' => \App\Helpers\GlobalSetting::class,
         'Basket' => \App\Helpers\Basket::class,
         'Page' => \App\Helpers\Page::class,
-        'HomePage' => \App\Helpers\HomePage::class
+        'HomePage' => \App\Helpers\HomePage::class,
+        'Shipment' => \App\Helpers\Shipment::class
 
     ],
     'base_url' => 'michallosak@gmail.com',
@@ -247,6 +248,12 @@ return [
         'title' => config('TITLE_PAGE', 'WORLD DESIGN'),
         'keywords' => config('KEYWORDS_PAGE', ''),
         'description' => config('DESCRIPTION_PAGE', '')
+    ],
+    'shipment' => [
+        'dpd_classic' => 12.99,
+        'dpd_download' => 16.99,
+        'inpost_classic' => 11.34,
+        'inpost_download' => 12.66
     ]
 
 ];

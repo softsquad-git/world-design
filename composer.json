@@ -13,6 +13,7 @@
         "laravel/framework": "^6.2",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^1.1",
+        "softon/indipay": "^1.1",
         "t3ko/inpost-api-php-sdk": "^0.2.1",
         "tzsk/payu": "^3.0"
     },

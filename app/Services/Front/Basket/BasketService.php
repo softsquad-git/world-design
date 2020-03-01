@@ -4,6 +4,7 @@
 namespace App\Services\Front\Basket;
 
 use App\Models\Basket\Basket;
+use App\Models\Products\Product;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
@@ -37,6 +38,19 @@ class BasketService
         $item->delete();
 
         return true;
+    }
+
+    public function changeQuantity($item, $quantity)
+    {
+        $product = Product::find($item->product_id);
+        if ($quantity > $product->quantity)
+            return false;
+
+        $item->update([
+            'quantity' => $quantity
+        ]);
+
+        return $item;
     }
 
 }

@@ -3,6 +3,7 @@
 namespace App\Models\CheckOut;
 
 use App\Models\Products\Product;
+use App\Models\Shipments\InpostShipment;
 use Illuminate\Database\Eloquent\Model;
 
 class CheckOut extends Model
@@ -29,5 +30,9 @@ class CheckOut extends Model
     {
         return $this->hasMany(Product::class, 'id')
             ->whereIn('id', $this->product_ids);
+    }
+    public function inpostShipment()
+    {
+        return $this->hasOne(InpostShipment::class, 'order_id', 'id');
     }
 }

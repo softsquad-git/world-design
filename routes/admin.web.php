@@ -73,4 +73,8 @@ Route::group(['prefix' => 'admin'], function (){
     });
 
     Route::get('newsletter', 'Admin\Newsletters\NewsletterController@items');
+    Route::group(['prefix' => 'shipments'], function (){
+        Route::get('/', 'Admin\Shipments\ShipmentPriceController@form');
+        Route::post('form', 'Admin\Shipments\ShipmentPriceController@store');
+    });
 });

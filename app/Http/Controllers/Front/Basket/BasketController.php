@@ -31,8 +31,6 @@ class BasketController extends Controller
     {
         $items = $this->repository->items();
 
-        //dd(Session::get('products'));
-
         return view('front.basket.index', [
             'products' => $items
         ]);
@@ -50,20 +48,53 @@ class BasketController extends Controller
     }
 
     public function delete($id){
+
+        $item = $this->repository->find($id);
+
         if (Auth::check())
         {
-            $item = $this->repository->find($id);
             if (!empty($item) && $item->user_id == Auth::id())
             {
                 $this->service->delete($item);
 
-                return redirect()->back();
+                return response()->json([
+                    'success' => 1,
+                    'total_price' => $this->repository->items()->total_price
+                ]);
             }
 
             return Redirections::redirectToError($this->toMethod);
         }
 
 
-        return redirect()->back();
+        if (!empty($item) && $item->local_id == Session::get('local_id')){
+            $this->service->delete($item);
+
+            return response()->json([
+                'success' => 1,
+                'total_price' => $this->repository->items()->total_price
+            ]);
+        }
+
+        return Redirections::redirectToError($this->toMethod);
+    }
+
+    public function changeQuantity($basketID)
+    {
+        $item = $this->repository->find($basketID);
+        if (isset($item->id) && $item->id > 0)
+        {
+            $item = $this->service->changeQuantity($item, request('quantity'));
+
+
+            return response()->json([
+                'data' => $item,
+                'total_price' => $this->repository->items()->total_price
+            ]);
+        }
+
+        return response()->json([
+            'error' => true
+        ]);
     }
 }

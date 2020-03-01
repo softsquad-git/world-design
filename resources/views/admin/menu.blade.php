@@ -77,6 +77,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ action('Admin\Newsletters\NewsletterController@items') }}">Newsletter</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ action('Admin\Shipments\ShipmentPriceController@form') }}">Wysyłka</a>
+            </li>
         </ul>
     </div>
 </nav>

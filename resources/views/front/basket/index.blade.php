@@ -34,11 +34,24 @@
                                 </thead>
                                 <tbody>
                                 @foreach($products as $product)
-                                    <tr class="text-center">
-                                        <td class="product-remove"><a
-                                                href="{{ route('remove-basket', ['id' => $product->id]) }}"><span
-                                                    class="ion-ios-close"></span></a></td>
-
+                                    <tr class="text-center" id="product_id_{{ $product->id }}">
+                                        <td id="remove-{{ $product->id }}" class="product-remove"><span
+                                                    class="ion-ios-close"></span></td>
+                                        <script>
+                                                $('#remove-{{ $product->id }}').click(function () {
+                                                    $.ajax({
+                                                        type: 'GET',
+                                                        url: '{{ route('remove-basket', ['id' => $product->id]) }}',
+                                                        success: function (data) {
+                                                            document.getElementById('all_total_price').innerHTML = data.total_price;
+                                                            $('#product_id_{{ $product->id }}').remove()
+                                                        },
+                                                        error: function () {
+                                                            alert('Error')
+                                                        }
+                                                    })
+                                                });
+                                        </script>
                                         <td class="image-prod">
                                             <div class="img"
                                                  style="background-image:url({{ $product->product->getImage() }});"></div>
@@ -55,14 +68,40 @@
 
                                         <td class="quantity">
                                             <div class="input-group mb-3">
-                                                <input type="number" name="quantity"
+                                                <input id="quantity_{{ $product->id }}" type="number" name="quantity"
                                                        class="quantity form-control input-number"
                                                        value="{{ $product->quantity }}" min="1"
                                                        max="{{ $product->product->quantity }}">
                                             </div>
                                         </td>
 
-                                        <td class="total">${{ $product->quantity * $product->product->price }}</td>
+                                        <td class="total">$<span id="totalPrice">{{ $product->quantity * $product->product->price }}</span></td>
+                                        <script>
+                                            $('#quantity_{{ $product->id }}').change(function () {
+                                                var quantity = $('#quantity_{{ $product->id }}').val();
+                                                var price = {{ $product->product->price }}
+
+                                                $.ajax({
+                                                    type: 'POST',
+                                                    url: '{{ route('basket.change-quantity', ['basket_id' => $product->id]) }}',
+                                                    data: {
+                                                        _token: '{{ csrf_token() }}',
+                                                        quantity: quantity
+                                                    },
+                                                    success: function (data) {
+                                                        document.getElementById('all_total_price').innerHTML = data.total_price;
+                                                    },
+                                                    error: function (data) {
+                                                        document.location.reload();
+                                                    }
+                                                })
+                                                var total_price = totalPrice(quantity, price);
+                                                document.getElementById('totalPrice').innerHTML = total_price;
+                                                function totalPrice(quantity, price) {
+                                                    return quantity * price;
+                                                }
+                                            });
+                                        </script>
                                     </tr>
                                 @endforeach
                                 </tbody>
@@ -73,10 +112,10 @@
             <div class="row justify-content-end">
                 <div class="col col-lg-5 col-md-6 mt-5 cart-wrap ftco-animate">
                     <div class="cart-total mb-3">
-                        <h3>Cart Totals</h3>
+                        <h3>Zamówienie</h3>
                         <p class="d-flex total-price">
-                            <span>Total</span>
-                            <span>${{ $products->total_price }}</span>
+                            <span>Razem</span>
+                            $ <span id="all_total_price">{{ $products->total_price }}</span>
                         </p>
                     </div>
                     <p id="ch-btn" class="text-center"><span class="btn btn-primary py-3 px-4">Złóż zamówienie</span></p>
@@ -111,3 +150,4 @@
         });
     });
 </script>
+

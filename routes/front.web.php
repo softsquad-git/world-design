@@ -25,6 +25,9 @@ Route::group(['prefix' => 'basket'], function (){
 
     Route::get('delete/{id}', 'Front\Basket\BasketController@delete')
         ->name('remove-basket');
+
+    Route::post('change-quantity/{basket_id}', 'Front\Basket\BasketController@changeQuantity')
+        ->name('basket.change-quantity');
 });
 
 Route::get('page/{alias}', 'Front\Pages\PageController@page')
@@ -55,3 +58,6 @@ Route::group(['prefix' => 'newsletter'], function (){
     Route::get('remove/{email}', 'Front\Newsletters\NewsletterController@delete')
         ->name('newsletter.remove');
 });
+
+Route::get('payu-payment/{item}', 'Payments\PaymentController@payment')
+    ->name('payu.payment');

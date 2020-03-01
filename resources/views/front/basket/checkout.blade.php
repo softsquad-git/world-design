@@ -54,11 +54,13 @@
             <label for="shipment">Wysyłka</label>
             <select id="shipment" name="shipment" class="form-control">
                 <option value="" selected>Wybierz sposób dostawy</option>
-                <option value="dpd_classic">Kurier DPD (przedpłata)</option>
-                <option value="dpd_download">Kurier DPD (pobranie)</option>
-                <option value="inpost">InPost</option>
+                <option value="dpd_classic">Kurier DPD (przedpłata) ($ {{ Shipment::price('dpd_classic') }})</option>
+                <option value="dpd_download">Kurier DPD (pobranie) ($ {{ Shipment::price('dpd_download') }})</option>
+                <option value="inpost_classic">Paczkomat (przedpłata) ($ {{ Shipment::price('inpost_classic') }})</option>
+                <option value="inpost_download">Paczkomat (pobranie) ($ {{ Shipment::price('inpost_download') }})</option>
             </select>
         </div>
+        <input type="hidden" name="inpost_number" id="inpost_number">
     </div>
     <div id="inpost-shipment" class="form-group row">
         <div class="col-lg-12">
@@ -97,7 +99,8 @@
                 }
             });
             var map = easyPack.mapWidget('easypack-map', function (point) {
-                alert(point.name);
+                var inpost_num = document.getElementById('inpost_number');
+                inpost_num.value = point.name;
             });
         };
     </script>
@@ -110,7 +113,7 @@
     $(document).ready(function(){
         $('#inpost-shipment').hide();
         $('#shipment').on('change', function() {
-            if (this.value == 'inpost')
+            if (this.value == 'inpost_classic' || this.value == 'inpost_download')
             {
                 $("#inpost-shipment").show();
             }
