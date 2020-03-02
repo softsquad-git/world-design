@@ -59,5 +59,3 @@ Route::group(['prefix' => 'newsletter'], function (){
         ->name('newsletter.remove');
 });
 
-Route::get('payu-payment/{item}', 'Payments\PaymentController@payment')
-    ->name('payu.payment');

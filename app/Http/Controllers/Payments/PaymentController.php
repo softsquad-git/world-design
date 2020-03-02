@@ -2,15 +2,20 @@
 
 namespace App\Http\Controllers\Payments;
 
+use App\Helpers\PayU;
 use App\Http\Controllers\Controller;
-use Softon\Indipay\Facades\Indipay;
 
 class PaymentController extends Controller
 {
 
-    public function paymentPayU()
+    public function paymentPayU($id)
     {
+        return PayU::payment($id);
+    }
 
+    public function status($_token)
+    {
+        return PayU::status($_token);
     }
 
 }

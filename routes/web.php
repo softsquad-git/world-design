@@ -20,14 +20,19 @@ Route::group(['middleware' => 'local_id'], function () {
 
     include 'front.web.php';
 
-    Route::get('payment', [
+    Route::get('payment/{id}', [
         'as' => 'payment',
-        'uses' => 'Payments\PaymentController@payment'
+        'uses' => 'Payments\PaymentController@paymentPayU'
     ]);
 
-    Route::get('payment/status', [
+    Route::get('payment/status/{_token}', [
         'as' => 'payment.status',
         'uses' => 'Payments\PaymentController@status'
+    ]);
+
+    Route::get('order/{_token}', [
+        'as' => 'find.payment',
+        'uses' => 'Front\Basket\CheckOutController@findOrder'
     ]);
 });
 

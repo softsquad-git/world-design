@@ -13,4 +13,12 @@ class CheckoutRepository
         return CheckOut::find($id);
     }
 
+    public function findCheckout($_token)
+    {
+        $order = CheckOut::where('_token', $_token)
+            ->first();
+
+        return $order;
+    }
+
 }

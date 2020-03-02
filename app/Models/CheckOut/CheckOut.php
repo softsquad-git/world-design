@@ -23,7 +23,8 @@ class CheckOut extends Model
         'size',
         'status',
         'quantity',
-        'country'
+        'country',
+        '_token'
     ];
 
     public function products()
@@ -31,6 +32,7 @@ class CheckOut extends Model
         return $this->hasMany(Product::class, 'id')
             ->whereIn('id', $this->product_ids);
     }
+
     public function inpostShipment()
     {
         return $this->hasOne(InpostShipment::class, 'order_id', 'id');

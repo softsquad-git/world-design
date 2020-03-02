@@ -247,13 +247,27 @@ return [
     'meta' => [
         'title' => config('TITLE_PAGE', 'WORLD DESIGN'),
         'keywords' => config('KEYWORDS_PAGE', ''),
-        'description' => config('DESCRIPTION_PAGE', '')
+        'description' => config('DESCRIPTION_PAGE', ''),
+        'success_product' => [
+            'title' => 'Zamówienie'
+        ]
     ],
     'shipment' => [
         'dpd_classic' => 12.99,
         'dpd_download' => 16.99,
         'inpost_classic' => 11.34,
         'inpost_download' => 12.66
+    ],
+    'payu' => [
+        'endpoint' => env('PAYU_ENDPOINT', 'https://secure.snd.payu.com/api/v2_1/orders/'),
+        'merchantPosId' => env('PAYU_POST_ID', 377814),
+        'description' => env('PAYU_DESCRIPTION', 'Shopping in the online shop'),
+        'currencyCode' => env('PAYU_CURRENCY_CODE', 'PLN'),
+        'customerIp' => env('PAYU_CUSTOMER_IP', '127.0.0.1')
+    ],
+    'payment' => [
+        'payee' => env('PAYEE', ''),
+        'account_number_recipient' => env('ACCOUNT_NUMBER_RECIPIENT_PAYMENT', '')
     ]
 
 ];

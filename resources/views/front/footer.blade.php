@@ -50,8 +50,15 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12 text-center">
-
+            <div class="col-lg-6 text-left">
+                <span class="txt-footer-bottom">
+                    {{ config('app.name') }} &copy; {{ date('Y') }}
+                </span>
+            </div>
+            <div class="col-lg-6 text-right">
+                <span class="txt-footer-bottom">
+                    Created by: <a href="{{ config('app.author.url') }}" target="_blank">{{ config('app.author.name') }}</a>
+                </span>
             </div>
         </div>
     </div>

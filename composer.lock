@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "916836141a0a11a290ea8edaae52e26b",
+    "content-hash": "ebe31c7e7615382af62528ff6a5f4d8a",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -1794,6 +1794,50 @@
                 "uuid"
             ],
             "time": "2019-12-17T08:18:51+00:00"
+        },
+        {
+            "name": "riazxrazor/payumoney",
+            "version": "1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/riazXrazor/payumoey.git",
+                "reference": "901199032caf9ca93db52180b8c419ce9608b34a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/riazXrazor/payumoey/zipball/901199032caf9ca93db52180b8c419ce9608b34a",
+                "reference": "901199032caf9ca93db52180b8c419ce9608b34a",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^5.5|^6",
+                "php": ">=5.6.0",
+                "symfony/http-foundation": "^4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Riazxrazor\\Payumoney\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Riaz Laskar",
+                    "email": "riazcool77@gmail.com"
+                }
+            ],
+            "description": "PayUMoney library for Laravel and core PHP",
+            "homepage": "http://github.com/riazxrazor/payumoney",
+            "keywords": [
+                "payu",
+                "payuindia",
+                "payumoney"
+            ],
+            "time": "2020-01-17T09:21:09+00:00"
         },
         {
             "name": "sabre/uri",
