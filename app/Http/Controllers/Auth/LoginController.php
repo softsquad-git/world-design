@@ -7,6 +7,7 @@ use App\Models\Basket\Basket;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
@@ -45,7 +46,7 @@ class LoginController extends Controller
     {
         Basket::where('local_id', Session::get('local_id'))
             ->update([
-                'user_id' => $user->id
+                'user_id' => Auth::id()
             ]);
     }
 }
