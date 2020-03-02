@@ -6,6 +6,7 @@ namespace App\Helpers;
 
 use App\Models\CheckOut\CheckOut;
 use App\Models\Payments\PaymentPayu;
+use App\Models\Products\Product;
 use GuzzleHttp\Client;
 
 class PayU
@@ -80,6 +81,7 @@ class PayU
         curl_close($ch);
 
         $response = json_decode($response);
+
         if ($response->status->statusCode == 'SUCCESS')
         {
             $data_payment = [];
@@ -110,17 +112,7 @@ class PayU
         $response = curl_exec($ch);
         curl_close($ch);
 
-        if ($response->status->statusCode == 'SUCCESS')
-        {
-            CheckOut::where('_token', $_token)
-                ->update([
-                    'status' => Status::CHECKOUT_STATUS_ACCEPTED
-                ]);
-            $order->delete();
-
-            return redirect()->route('home')
-                ->with('message', trans('front.payu.success'));
-        }
+        dd($response);
 
     }
 
