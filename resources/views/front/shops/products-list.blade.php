@@ -14,9 +14,18 @@
             </div>
         </div>
     </div>
-
     <section class="ftco-section bg-light">
         <div class="container-fluid">
+            <form method="get" action="{{ route('shops') }}" class="mb-5">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <input type="text" name="title" class="form-control" placeholder="Search product ...">
+                    </div>
+                    <div class="col-lg-1">
+                        <button class="btn w-100 btn-outline-secondary" type="submit" style="border-radius: 0;padding: 13px;"><i class="fa fa-search"></i></button>
+                    </div>
+                </div>
+            </form>
             <div class="row">
                 @foreach($products as $product)
                     <div class="col-sm col-md-6 col-lg-3 ftco-animate">

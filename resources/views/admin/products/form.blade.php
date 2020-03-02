@@ -2,6 +2,7 @@
 @section('title')
     {{ config('app.author.name') }}
 @endsection
+
 @section('content')
     @if ($errors->any())
         <div class="alert alert-danger w-100">
@@ -126,9 +127,23 @@
                 @foreach($item->images as $image)
                     <div class="col-lg-3">
                         <div class="images-form" style="background-image: url({{ $image->getImage() }})">
-                            <a href="{{ action('Admin\Products\ProductController@removeImage', ['id' => $image->id]) }}" class="btn btn-sm btn-danger" title="Usuń"><i class="fa fa-ban"></i> </a>
+                            <span id="remove-{{ $image->id }}" class="btn btn-sm btn-danger" title="Usuń"><i class="fa fa-ban"></i> </span>
                         </div>
                     </div>
+                    <script>
+                        $('#remove-{{ $image->id }}').click(function () {
+                            $.ajax({
+                                type: 'GET',
+                                url: '{{ action('Admin\Products\ProductController@removeImage', ['id' => $image->id]) }}',
+                                success: function () {
+                                    document.getElementById('remove-{{$image->id}}').remove();
+                                },
+                                error: function () {
+                                    alert('Error')
+                                }
+                            })
+                        });
+                    </script>
                 @endforeach
             </div>
         @endif
@@ -144,9 +159,7 @@
         </form>
     @endif
 @endsection
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-                   integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-                   crossorigin="anonymous"></script>
+<script src="{{ asset('assets/front/js/jquery.min.js') }}"></script>
 <script>
     $(document).ready(function(){
         $('#old-price').hide();

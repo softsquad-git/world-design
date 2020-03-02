@@ -31,11 +31,8 @@ class ProductRepository
 
     public function products(array $search){
         $title = $search['title'];
-        $items = Product::where('status', Status::PRODUCT_STATUS_AVAILABLE)
-            ->orWhere('status', Status::PRODUCT_STATUS_NEWS)
-            ->orWhere('status', Status::PRODUCT_STATUS_PROMO)
-            ->orderBy('id', 'DESC');
-        $items->where('title', 'like', '%' . $title . '%');
+        $items = Product::where('title', 'like', '%' . $title . '%')
+            ->where('status', '!=', Status::PRODUCT_STATUS_LACK);
 
         return $items
             ->paginate(20);
