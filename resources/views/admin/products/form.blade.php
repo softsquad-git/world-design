@@ -126,7 +126,7 @@
             <div class="form-group row">
                 @foreach($item->images as $image)
                     <div class="col-lg-3">
-                        <div class="images-form" style="background-image: url({{ $image->getImage() }})">
+                        <div id="image-{{ $image->id }}" class="images-form" style="background-image: url({{ $image->getImage() }})">
                             <span id="remove-{{ $image->id }}" class="btn btn-sm btn-danger" title="Usuń"><i class="fa fa-ban"></i> </span>
                         </div>
                     </div>
@@ -136,7 +136,7 @@
                                 type: 'GET',
                                 url: '{{ action('Admin\Products\ProductController@removeImage', ['id' => $image->id]) }}',
                                 success: function () {
-                                    document.getElementById('remove-{{$image->id}}').remove();
+                                    document.getElementById('image-{{$image->id}}').remove();
                                 },
                                 error: function () {
                                     alert('Error')

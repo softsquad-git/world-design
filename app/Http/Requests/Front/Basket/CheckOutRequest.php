@@ -30,7 +30,8 @@ class CheckOutRequest extends FormRequest
             'address' => 'required|string|min:3',
             'email' => 'required|email',
             'shipment' => 'required',
-            'country' => 'required|min:3|string'
+            'country' => 'required|min:3|string',
+            'phone' => 'required|string'
         ];
     }
 }

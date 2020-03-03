@@ -1,4 +1,4 @@
-<form method="post" action="{{ route('checkout') }}">
+<form>
     @csrf
     <div class="form-group row">
         <div class="col-lg-6">
@@ -32,7 +32,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <label for="email">Adres</label>
-                    <input id="email" type="text" class="form-control"
+                    <input id="address" type="text" class="form-control"
                            plceholder="Adres" value="{{ Auth::user()->contact->address ?? old('address') }}"
                            name="address">
                 </div>
@@ -71,8 +71,11 @@
     </div>
 
     <div class="form-group">
-        <button class="btn btn-primary py-3 px-4" type="submit">Finalizuj</button>
+        <button id="sendForm" class="btn btn-primary py-3 px-4" type="button">Finalizuj</button><img id="loadGIF" src="{{ asset('assets/load.gif') }}">
     </div>
+    <ul id="errors">
+
+    </ul>
 </form>
 {{-- |-JS-| --}}
 @section('custom-script')
@@ -101,6 +104,7 @@
             var map = easyPack.mapWidget('easypack-map', function (point) {
                 var inpost_num = document.getElementById('inpost_number');
                 inpost_num.value = point.name;
+                alert('Wybrano paczkomat')
             });
         };
     </script>
@@ -123,4 +127,44 @@
             }
         });
     });
+</script>
+
+<script>
+    $('#loadGIF').hide();
+    $('#sendForm').click(function () {
+        $('#loadGIF').show();
+        $.ajax({
+            type: 'POST',
+            url: '{{ route('checkout') }}',
+            data: {
+                _token: '{{ csrf_token() }}',
+                name: $('#name').val(),
+                email: $('#email').val(),
+                post_code: $('#post_code').val(),
+                city: $('#city').val(),
+                address: $('#address').val(),
+                phone: $('#phone').val(),
+                country: $('#country').val(),
+                shipment: $('#shipment').val(),
+                inpost_number: $('#inpost_number').val()
+            },
+            success: function(data){
+                $('#loadGIF').hide();
+                window.location.href = '/checkout-success/'+data.item.id
+            },
+            error: function (data) {
+                $('#loadGIF').hide();
+                var errors = document.getElementById('errors'), child;
+                while (child = errors.firstChild){
+                    errors.removeChild(child);
+                }
+                if(data.status === 422){
+                    var errors = data.responseJSON;
+                    $.each(errors.errors, function (key, item) {
+                        $('#errors').append('<li>'+item+'</li>');
+                    })
+                }
+            }
+        })
+    })
 </script>

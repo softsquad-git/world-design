@@ -29,12 +29,16 @@ class CheckOutController extends Controller
     {
         $item = $this->service->store($request->all());
 
-        return $this->success($item);
+        return response()->json([
+            'item' => $item
+        ]);
 
     }
 
-    public function success($item)
+    public function success($id)
     {
+        $item = $this->repository->find($id);
+
         return view('front.basket.success-checkout', [
             'item' => $item
         ]);

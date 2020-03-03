@@ -24,15 +24,15 @@ class CheckOut extends Model
         'status',
         'quantity',
         'country',
+        'phone',
         '_token'
     ];
 
     public function products()
     {
         return $this->hasMany(Product::class, 'id')
-            ->whereIn('id', $this->product_ids);
+            ->whereIn('id', json_decode($this->product_ids));
     }
-
     public function inpostShipment()
     {
         return $this->hasOne(InpostShipment::class, 'order_id', 'id');

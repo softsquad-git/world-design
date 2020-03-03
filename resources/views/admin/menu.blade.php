@@ -24,9 +24,8 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="page">
                     <a class="dropdown-item" href="{{ action('Admin\CheckOuts\CheckOutController@items') }}">Lista</a>
-                    <a class="dropdown-item" href="#">Oczekujące</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Zrealizowane</a>
+                    <a class="dropdown-item" href="{{ action('Admin\CheckOuts\CheckOutController@realization') }}">Zrealizowane</a>
                 </div>
             </li>
             <li class="nav-item dropdown">

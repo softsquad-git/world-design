@@ -42,6 +42,9 @@ Route::get('contact', 'Front\Pages\PageController@contact')
 Route::post('checkout', 'Front\Basket\CheckOutController@store')
     ->name('checkout');
 
+Route::get('checkout-success/{id}', 'Front\Basket\CheckOutController@success')
+    ->name('checkout.success');
+
 Route::group(['prefix' => 'references'], function (){
     Route::get('/', 'Front\References\ReferenceController@items')
         ->name('references');

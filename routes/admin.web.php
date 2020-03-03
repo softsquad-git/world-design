@@ -64,6 +64,11 @@ Route::group(['prefix' => 'admin'], function (){
     });
     Route::group(['prefix' => 'checkouts'], function (){
         Route::get('/', 'Admin\CheckOuts\CheckOutController@items');
+        Route::post('status/{id}', 'Admin\CheckOuts\CheckOutController@changeStatus')
+            ->name('admin.checkout.status');
+        Route::get('realization', 'Admin\CheckOuts\CheckOutController@realization');
+        Route::get('item/{id}', 'Admin\CheckOuts\CheckOutController@show');
+        Route::get('pdf/{id}', 'Admin\CheckOuts\CheckOutController@pdf');
     });
 
     Route::group(['prefix' => 'references'], function (){

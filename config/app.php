@@ -174,6 +174,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
 
     ],
 
@@ -230,7 +231,8 @@ return [
         'Basket' => \App\Helpers\Basket::class,
         'Page' => \App\Helpers\Page::class,
         'HomePage' => \App\Helpers\HomePage::class,
-        'Shipment' => \App\Helpers\Shipment::class
+        'Shipment' => \App\Helpers\Shipment::class,
+        'PDF' => Barryvdh\DomPDF\Facade::class,
 
     ],
     'base_url' => 'michallosak@gmail.com',
