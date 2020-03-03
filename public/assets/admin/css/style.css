@@ -37,3 +37,11 @@ a.checkout-product {
     font-weight: bold;
     text-decoration: none;
 }
+.order-details{
+    font-size: 14px;
+    color: #424242
+}
+.order-details > ul#products {
+    margin-top: 20px;
+    font-weight: bold;
+}

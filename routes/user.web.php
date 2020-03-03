@@ -11,4 +11,7 @@ Route::group(['prefix' => 'user'], function (){
     Route::get('orders', 'User\Orders\OrderController@items')
         ->name('user.orders');
 
+    Route::get('order/{id}', 'User\Orders\OrderController@find')
+        ->name('user.order');
+
 });

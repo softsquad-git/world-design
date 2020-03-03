@@ -33,6 +33,7 @@
             @endforeach
             </tbody>
         </table>
+        {{ $items->render() }}
     @else
         <div class="alert-danger alert text-center w-100">
             Brak danych do wyświetlenia

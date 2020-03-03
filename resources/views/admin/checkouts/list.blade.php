@@ -75,10 +75,26 @@
                                 <a class="dropdown-item" href="{{ action('Admin\CheckOuts\CheckOutController@show', ['id' => $item->id]) }}"
                                    title="Zobacz podgląd">Zobacz podgląd</a>
                                 <a class="dropdown-item" href="{{ action('Admin\CheckOuts\CheckOutController@pdf', ['id' => $item->id]) }}">Pobierz PDF</a>
+                                <button data-toggle="modal" data-target="#shipmentData-{{ $item->id }}" class="dropdown-item">Dane do wysyłki</button>
                             </div>
                         </div>
                     </td>
                 </tr>
+                <div class="modal fade" id="shipmentData-{{ $item->id }}" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <div class="dataShipment">
+                                    {{ $item->name }}, <br/>
+                                    {{ $item->address }}, <br/>
+                                    {{ $item->post_code }}, {{ $item->city }} <br/>
+                                    <i class="fa fa-envelope"></i> {{ $item->email }} <br/>
+                                    <i class="fa fa-phone"></i> {{ $item->phone }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <script>
                     var statusSubmitted = '{{ Status::CHECKOUT_STATUS_SUBMITTED }}';
                     var statusAccepted = '{{ Status::CHECKOUT_STATUS_ACCEPTED }}';
@@ -124,6 +140,7 @@
             @endforeach
             </tbody>
         </table>
+        {{ $items->render() }}
     @else
         <div class="alert-danger alert text-center w-100">
             Brak danych do wyświetlenia

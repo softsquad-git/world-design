@@ -282,7 +282,8 @@
                                             <p style="font-size: 14px; line-height: 1.2; word-break: break-word; mso-line-height-alt: 17px; margin: 0;">Adres: {{ $item->address }}</p><br/>
                                             <p style="font-size: 14px; line-height: 1.2; word-break: break-word; mso-line-height-alt: 17px; margin: 0;">Miasto i kod pocztowy: {{ $item->post_code }}, {{ $item->city }}</p><br/>
                                             <p style="font-size: 14px; line-height: 1.2; word-break: break-word; mso-line-height-alt: 17px; margin: 0;">Kraj: {{ $item->country }}</p><br/>
-                                            <p style="font-size: 14px; line-height: 1.2; word-break: break-word; mso-line-height-alt: 17px; margin: 0;">E-mail: {{ $item->email }}</p><br/>
+                                            <p style="font-size: 14px; line-height: 1.2; word-break: break-word; mso-line-height-alt: 17px; margin: 0;">E-mail: {{ $item->email }}</p><br/><br/>
+                                            <p style="font-size: 14px; line-height: 1.2; word-break: break-word; mso-line-height-alt: 17px; margin: 0;">Jeśli jeszcze nie opłaciłeś/aś swojego zamówienia możesz to zrobić <a href="{{ route('find.payment', ['_token' => $item->_token]) }}">tutaj</a> </p><br/>
                                         </div>
                                     </div>
                                     <!--[if mso]></td></tr></table><![endif]-->
@@ -296,7 +297,7 @@
                                     <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; font-family: Tahoma, sans-serif"><![endif]-->
                                     <div style="color:#555555;font-family:Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;line-height:1.2;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
                                         <div style="font-size: 14px; line-height: 1.2; color: #555555; font-family: Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif; mso-line-height-alt: 17px;">
-                                            <p style="font-size: 14px; line-height: 1.2; word-break: break-word; text-align: center; mso-line-height-alt: 17px; margin: 0;"><a href="https://world-design.pl/shop" rel="noopener" style="text-decoration: underline; color: #0068A5;" target="_blank">Zapraszamy ponowni</a></p>
+                                            <p style="font-size: 14px; line-height: 1.2; word-break: break-word; text-align: center; mso-line-height-alt: 17px; margin: 0;"><a href="https://world-design.pl/shop" rel="noopener" style="text-decoration: underline; color: #0068A5;" target="_blank">Zapraszamy ponownie</a></p>
                                         </div>
                                     </div>
                                     <!--[if mso]></td></tr></table><![endif]-->
@@ -318,8 +319,9 @@
                                     <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 40px; padding-left: 40px; padding-top: 20px; padding-bottom: 10px; font-family: Tahoma, sans-serif"><![endif]-->
                                     <div style="color:#555555;font-family:Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;line-height:1.5;padding-top:20px;padding-right:40px;padding-bottom:10px;padding-left:40px;">
                                         <div style="line-height: 1.5; font-size: 12px; font-family: Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif; color: #555555; mso-line-height-alt: 18px;">
-                                            <p style="line-height: 1.5; word-break: break-word; font-family: inherit; font-size: 16px; mso-line-height-alt: 24px; margin: 0;"><span style="font-size: 16px; color: #6d89bc;">World Design,</span></p>
-                                            <p style="line-height: 1.5; word-break: break-word; font-family: inherit; font-size: 16px; mso-line-height-alt: 24px; margin: 0;"><span style="font-size: 16px; color: #6d89bc;">Kamila Więckowska - Kontakt z sprzedawcą</span></p>
+                                            <p style="line-height: 1.5; word-break: break-word; font-family: inherit; font-size: 16px; mso-line-height-alt: 24px; margin: 0;"><span style="font-size: 16px; color: #6d89bc;">World Design, Kamila Więckowska</span></p>
+                                            <p style="line-height: 1.5; word-break: break-word; font-family: inherit; font-size: 16px; mso-line-height-alt: 24px; margin: 0;"><span style="font-size: 16px; color: #6d89bc;">Centrum handlowe Ptak Hala D stoisko 121.</span></p>
+                                            <p style="line-height: 1.5; word-break: break-word; font-family: inherit; font-size: 16px; mso-line-height-alt: 24px; margin: 0;"><span style="font-size: 16px; color: #6d89bc;">Centrum handlowe Gluchow hala C   1 rząd m 23</span></p>
                                             <p style="line-height: 1.5; word-break: break-word; font-family: inherit; mso-line-height-alt: NaNpx; margin: 0;"> </p>
                                         </div>
                                     </div>
