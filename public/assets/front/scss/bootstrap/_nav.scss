@@ -61,7 +61,7 @@
   .dropdown-menu {
     // Make dropdown border overlap tab border
     margin-top: -$nav-tabs-border-width;
-    // Remove the top rounded corners here since there is a hard edge above the menu
+    // Remove the top rounded corners here since there is a hard edge above the menu.php
     @include border-top-radius(0);
   }
 }

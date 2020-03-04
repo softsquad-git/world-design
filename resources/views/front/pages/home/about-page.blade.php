@@ -14,7 +14,7 @@
                     {!! HomePage::getDescriptionAbout() !!}
                 </div>
 
-                <a class="btn btn-outline-secondary" href="{{ route('page', ['alias' => 'about-us']) }}">Więcej</a>
+                <a class="btn btn-outline-secondary" href="{{ route('page', ['alias' => 'about-us']) }}">@lang('home.more')</a>
             </div>
         </div>
     </div>

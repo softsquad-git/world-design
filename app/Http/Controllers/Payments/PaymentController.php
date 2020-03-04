@@ -18,4 +18,8 @@ class PaymentController extends Controller
         return PayU::status($_token);
     }
 
+    public function check(){
+        return PayU::checkPayment();
+    }
+
 }

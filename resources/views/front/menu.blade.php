@@ -13,8 +13,8 @@
 
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active"><a href="{{ route('home') }}" class="nav-link">Strona główna</a></li>
-                <li class="nav-item"><a href="{{ route('shops') }}" class="nav-link">Sklep</a></li>
+                <li class="nav-item active"><a href="{{ route('home') }}" class="nav-link">@lang('navbar.home')</a></li>
+                <li class="nav-item"><a href="{{ route('shops') }}" class="nav-link">@lang('navbar.shop')</a></li>
                 @foreach(Page::getPagesTop()->slice(0, 2) as $page)
                     <li class="nav-item"><a href="{{ route('page', ['alias' => $page->alias]) }}" class="nav-link">{{ $page->title }}</a></li>
                 @endforeach
@@ -28,7 +28,7 @@
                         </div>
                     </li>
                 @endif
-                <li class="nav-item"><a href="{{ route('contact') }}" class="nav-link">Kontakt</a></li>
+                <li class="nav-item"><a href="{{ route('contact') }}" class="nav-link">@lang('navbar.contact')</a></li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="auth" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i></a>
                     <div class="dropdown-menu" aria-labelledby="auth">
@@ -40,16 +40,23 @@
                             @endif
                             <form method="post" action="{{ route('logout') }}">
                                 @csrf
-                                <button type="submit" class="dropdown-item">Wyloguj się</button>
+                                <button type="submit" class="dropdown-item">@lang('navbar.logout')</button>
                             </form>
                         @else
-                            <a class="dropdown-item" href="{{ route('login') }}">Zaloguj się</a>
-                            <a class="dropdown-item" href="{{ route('register') }}">Zarejestruj się</a>
+                            <a class="dropdown-item" href="{{ route('login') }}">@lang('navbar.login')</a>
+                            <a class="dropdown-item" href="{{ route('register') }}">@lang('navbar.register')</a>
                         @endif
                     </div>
                 </li>
                 <li class="nav-item cta cta-colored"><a href="{{ route('basket') }}" class="nav-link"><span class="icon-shopping_cart"></span>({{ Basket::countProductsInBasket() }})</a></li>
-
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="lang" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-globe"></i></a>
+                    <div class="dropdown-menu" aria-labelledby="lang">
+                        <a class="dropdown-item" href="{{ url('locale/pl') }}"><img src="{{ asset('assets/flags/pl.png') }}"></a>
+                        <a class="dropdown-item" href="{{ url('locale/en') }}"><img src="{{ asset('assets/flags/en.png') }}"></a>
+                        <a class="dropdown-item" href="{{ url('locale/ru') }}"><img src="{{ asset('assets/flags/ru.png') }}"></a>
+                    </div>
+                </li>
             </ul>
         </div>
     </div>

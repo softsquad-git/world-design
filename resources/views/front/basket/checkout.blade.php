@@ -2,9 +2,9 @@
     @csrf
     <div class="form-group row">
         <div class="col-lg-6">
-            <label for="name">Imię i Nazwisko</label>
+            <label for="name">@lang('basket.name')</label>
             <input id="name" type="text" class="form-control"
-                   plceholder="Imię" name="name" value="{{ Auth::user()->name ?? old('name') }}">
+                   plceholder="@lang('basket.name')" name="name" value="{{ Auth::user()->name ?? old('name') }}">
         </div>
         <div class="col-lg-6">
             <label for="email">E-mail</label>
@@ -16,24 +16,24 @@
         <div class="col-lg-6">
             <div class="row">
                 <div class="col-lg-4">
-                    <label for="post_code">Kod pocztowy</label>
+                    <label for="post_code">@lang('basket.post_code')</label>
                     <input id="post_code" type="text" class="form-control"
-                           plceholder="Kod pocztowy" value="{{ Auth::user()->contact->post_code ?? old('post_code') }}"
+                           plceholder="@lang('basket.post_code')" value="{{ Auth::user()->contact->post_code ?? old('post_code') }}"
                            name="post_code">
                 </div>
                 <div class="col-lg-8">
-                    <label for="city">Miasto</label>
+                    <label for="city">@lang('basket.town')</label>
                     <input id="city" type="text" class="form-control"
-                           plceholder="Miasto" value="{{ Auth::user()->contact->city ?? old('city') }}" name="city">
+                           plceholder="@lang('basket.town')" value="{{ Auth::user()->contact->city ?? old('city') }}" name="city">
                 </div>
             </div>
         </div>
         <div class="col-lg-6">
             <div class="row">
                 <div class="col-lg-12">
-                    <label for="email">Adres</label>
+                    <label for="email">@lang('basket.address')</label>
                     <input id="address" type="text" class="form-control"
-                           plceholder="Adres" value="{{ Auth::user()->contact->address ?? old('address') }}"
+                           plceholder="@lang('basket.address')" value="{{ Auth::user()->contact->address ?? old('address') }}"
                            name="address">
                 </div>
             </div>
@@ -42,18 +42,18 @@
     <div class="form-group row">
         <div class="col-lg-4">
             <label for="phone">Telefon</label>
-            <input id="phone" class="form-control" plceholder="Telefon"
+            <input id="phone" class="form-control" plceholder="@lang('basket.phone')" placeholder="@lang('basket.phone')"
                    value="{{ Auth::user()->contact->phone ?? old('phone')}}" name="phone" type="text">
         </div>
         <div class="col-lg-4">
-            <label for="country">Kraj</label>
-            <input id="country" class="form-control" plceholder="Kraj"
+            <label for="country">@lang('basket.country')</label>
+            <input id="country" class="form-control" plceholder="@lang('basket.country')"
                    value="{{ Auth::user()->contact->country ?? old('country')}}" name="country" type="country">
         </div>
         <div class="col-lg-4">
-            <label for="shipment">Wysyłka</label>
+            <label for="shipment">@lang('basket.shipment')</label>
             <select id="shipment" name="shipment" class="form-control">
-                <option value="" selected>Wybierz sposób dostawy</option>
+                <option value="" selected>@lang('basket.select_shipment')</option>
                 <option value="dpd_classic">Kurier DPD (przedpłata) ($ {{ Shipment::price('dpd_classic') }})</option>
                 <option value="dpd_download">Kurier DPD (pobranie) ($ {{ Shipment::price('dpd_download') }})</option>
                 <option value="inpost_classic">Paczkomat (przedpłata) ($ {{ Shipment::price('inpost_classic') }})</option>
@@ -71,7 +71,7 @@
     </div>
 
     <div class="form-group">
-        <button id="sendForm" class="btn btn-primary py-3 px-4" type="button">Finalizuj</button><img id="loadGIF" src="{{ asset('assets/load.gif') }}">
+        <button id="sendForm" class="btn btn-primary py-3 px-4" type="button">@lang('basket.finalize')</button><img id="loadGIF" src="{{ asset('assets/load.gif') }}">
     </div>
     <ul id="errors">
 

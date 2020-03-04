@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row justify-content-center mb-3 pb-3">
                 <div class="col-md-12 heading-section text-center ftco-animate">
-                    <h1 class="big">Testimony</h1>
+                    <h1 class="big">@lang('home.testimony')</h1>
                 </div>
             </div>
             <div class="row justify-content-center">

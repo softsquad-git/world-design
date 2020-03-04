@@ -11,13 +11,13 @@
   @include caret;
 }
 
-// The dropdown menu
+// The dropdown menu.php
 .dropdown-menu {
   position: absolute;
   top: 100%;
   left: 0;
   z-index: $zindex-dropdown;
-  display: none; // none by default, but block on "open" of the menu
+  display: none; // none by default, but block on "open" of the menu.php
   float: left;
   min-width: $dropdown-min-width;
   padding: $dropdown-padding-y 0;
@@ -38,7 +38,7 @@
   left: auto;
 }
 
-// Allow for dropdowns to go bottom up (aka, dropup-menu)
+// Allow for dropdowns to go bottom up (aka, dropup-menu.php)
 // Just add .dropup after the standard .dropdown class and you're set.
 .dropup {
   .dropdown-menu {
@@ -105,7 +105,7 @@
   @include nav-divider($dropdown-divider-bg);
 }
 
-// Links, buttons, and more within the dropdown menu
+// Links, buttons, and more within the dropdown menu.php
 //
 // `<button>`-specific styles are denoted with `// For <button>s`
 .dropdown-item {

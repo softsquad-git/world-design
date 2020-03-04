@@ -1,4 +1,8 @@
 <?php
+Route::get('locale/{locale}', function ($locale){
+    Session::put('locale', $locale);
+    return redirect()->back();
+});
 
 Route::group(['middleware' => 'local_id'], function () {
     Auth::routes();
@@ -28,6 +32,11 @@ Route::group(['middleware' => 'local_id'], function () {
     Route::get('payment/status/{_token}', [
         'as' => 'payment.status',
         'uses' => 'Payments\PaymentController@status'
+    ]);
+
+    Route::get('payment-check', [
+        'as' => 'payment.check',
+        'uses' => 'Payments\PaymentController@check'
     ]);
 
     Route::get('order/{_token}', [

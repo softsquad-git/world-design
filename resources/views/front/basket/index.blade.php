@@ -7,9 +7,9 @@
         <div class="container">
             <div class="row no-gutters slider-text align-items-center justify-content-center">
                 <div class="col-md-9 ftco-animate text-center">
-                    <h1 class="mb-0 bread">Koszyk</h1>
-                    <p class="breadcrumbs"><span class="mr-2"><a href="{{ route('home') }}">Strona główna</a></span>
-                        <span>Koszyk</span></p>
+                    <h1 class="mb-0 bread">@lang('basket.title')</h1>
+                    <p class="breadcrumbs"><span class="mr-2"><a href="{{ route('home') }}">@lang('navbar.home')</a></span>
+                        <span>@lang('basket.title')</span></p>
                 </div>
             </div>
         </div>
@@ -26,10 +26,10 @@
                                 <tr class="text-center">
                                     <th>&nbsp;</th>
                                     <th>&nbsp;</th>
-                                    <th>Produkt</th>
-                                    <th>Cena</th>
-                                    <th>Ilość</th>
-                                    <th>Razem</th>
+                                    <th>@lang('basket.product')</th>
+                                    <th>@lang('basket.price')</th>
+                                    <th>@lang('basket.quantity')</th>
+                                    <th>@lang('basket.total_price')</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -112,20 +112,20 @@
             <div class="row justify-content-end">
                 <div class="col col-lg-5 col-md-6 mt-5 cart-wrap ftco-animate">
                     <div class="cart-total mb-3">
-                        <h3>Zamówienie</h3>
+                        <h3>@lang('basket.order')</h3>
                         <p class="d-flex total-price">
-                            <span>Razem</span>
+                            <span>@lang('basket.total_price')</span>
                             $ <span id="all_total_price">{{ $products->total_price }}</span>
                         </p>
                     </div>
-                    <p id="ch-btn" class="text-center"><span class="btn btn-primary py-3 px-4">Złóż zamówienie</span></p>
-                    <p id="ch-v-btn" class="text-center"><span class="btn btn-primary py-3 px-4">Anuluj</span></p>
+                    <p id="ch-btn" class="text-center"><span class="btn btn-primary py-3 px-4">@lang('basket.submit')</span></p>
+                    <p id="ch-v-btn" class="text-center"><span class="btn btn-primary py-3 px-4">@lang('basket.cancel')</span></p>
                 </div>
             </div>
             <span id="checkout-view">@include('front.basket.checkout')</span>
             @else
                 <div class="alert alert-danger w-100 text-center">
-                    Brak produktów w koszyku <a href="{{ route('shops') }}">przejdź do sklepu</a>
+                    @lang('basket.no_product') <a href="{{ route('shops') }}">@lang('basket.to')</a>
                 </div>
             @endif
         </div>

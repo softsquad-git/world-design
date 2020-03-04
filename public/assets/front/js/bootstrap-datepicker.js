@@ -106,7 +106,7 @@
 			this.picker.addClass('datepicker-inline').appendTo(this.element);
 		}
 		else {
-			this.picker.addClass('datepicker-dropdown dropdown-menu');
+			this.picker.addClass('datepicker-dropdown dropdown-menu.php');
 		}
 
 		if (this.o.rtl){

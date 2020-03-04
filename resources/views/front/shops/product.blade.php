@@ -38,7 +38,7 @@
                             <input type="hidden" name="product_id" value="{{ $product->id }}"/>
                             <div class="form-group row">
                                 <div class="col-lg-8">
-                                    <label from="size">Rozmiar</label>
+                                    <label from="size">@lang('shop.size')</label>
                                     <select name="size" id="size" class="form-control">
                                         @foreach(json_decode($product->sizes) as $size)
                                             <option value="{{ $size }}">{{ $size }}</option>
@@ -47,26 +47,14 @@
                                 </div>
                                 <div class="col-lg-4">
                                     <div class="form-group">
-                                        <label from="quantity">Ilość</label>
+                                        <label from="quantity">@lang('shop.quantity')</label>
                                         <input id="quantity" type="number" name="quantity" class="form-control"
-                                               min="1" max="{{ $product->quantity }}" placeholder="Ilość">
+                                               min="1" max="{{ $product->quantity }}" placeholder="@lang('shop.quantity')">
                                     </div>
                                 </div>
                             </div>
-{{--                            <div class="form-group row">--}}
-{{--                                <div class="col-lg-12">--}}
-{{--                                    @foreach(json_decode($product->colors) as $key => $color)--}}
-{{--                                        <div class="form-check form-check-inline mr-4">--}}
-{{--                                            <label for="color{{$key}}" class="checkcolor-label">--}}
-{{--                                                <input class="form-check-input" type="radio" name="color" id="color{{ $key }}" value="{{ $color }}">--}}
-{{--                                                <span class="checkcolor" style="background: {{ $color }}"></span>--}}
-{{--                                            </label>--}}
-{{--                                        </div>--}}
-{{--                                    @endforeach--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
                             <div class="form-group mt-4">
-                                <button class="btn btn-outline-secondary" type="submit">Dodaj do koszyka</button>
+                                <button class="btn btn-outline-secondary" type="submit">@lang('shop.add_basket')</button>
                             </div>
                         </form>
                     </div>

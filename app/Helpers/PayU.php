@@ -6,6 +6,7 @@ use App\Mail\User\SuccessPayment;
 use App\Models\CheckOut\CheckOut;
 use App\Models\Payments\PaymentPayu;
 use Illuminate\Support\Facades\Mail;
+use MongoDB\Driver\Session;
 use OpenPayU_Configuration;
 use OpenPayU_Order;
 use OpenPayU_Util;
@@ -40,7 +41,7 @@ class PayU
     {
         $item = CheckOut::find($id);
         $order = [];
-        $order['notifyUrl'] = route('payment.status', ['_token' => $item->_token]);
+        $order['notifyUrl'] = route('payment.check');
         $order['continueUrl'] = route('payment.status', ['_token' => $item->_token]);
         $order['customerIp'] = '127.0.0.1';
         $order['merchantPosId'] = OpenPayU_Configuration::getOauthClientId() ? OpenPayU_Configuration::getOauthClientId() : OpenPayU_Configuration::getMerchantPosId();
@@ -68,7 +69,14 @@ class PayU
 
             return redirect($response->getResponse()->redirectUri);
         }
-        dd($response->getResponse()->orderId);
+        return redirect()->route('home')
+            ->with('message', trans('front.payu.error.payment'));
+    }
+
+    public static function checkPayment()
+    {
+        $response = OpenPayU_Order::retrieveTransaction('5e5f87dbccac60.52705567');
+        dd($response);
     }
 
 }

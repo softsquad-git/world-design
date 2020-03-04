@@ -14,9 +14,9 @@
                     <div class="product">
                         <a href="{{ route('product', ['id' => $row->id]) }}" class="img-prod"><img class="img-fluid" src="{{ $row->getImage() }}" alt="{{ $row->title }}">
                             @if($row->status == Status::PRODUCT_STATUS_PROMO)
-                                <span class="status">PROMOCJA</span>
+                                <span class="status">@lang('shop.promotion')</span>
                             @elseif($row->status == Status::PRODUCT_STATUS_NEWS)
-                                <span class="status">NOWOŚĆ</span>
+                                <span class="status">@lang('shop.news')</span>
                             @endif
                         </a>
                         <div class="text py-3 px-3">

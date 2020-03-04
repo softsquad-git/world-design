@@ -43,7 +43,7 @@
 {{--                <a class="nav-link dropdown-toggle" href="#" id="color" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--}}
 {{--                    Kolory--}}
 {{--                </a>--}}
-{{--                <div class="dropdown-menu" aria-labelledby="color">--}}
+{{--                <div class="dropdown-menu.php" aria-labelledby="color">--}}
 {{--                    <a class="dropdown-item" href="{{ action('Admin\Colors\ColorController@items') }}">Lista</a>--}}
 {{--                    <a class="dropdown-item" href="{{ action('Admin\Colors\ColorController@create') }}">Dodaj</a>--}}
 {{--                </div>--}}
