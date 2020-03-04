@@ -9210,3 +9210,10 @@ ul#errors {
 }ul#errors li {
      list-style: none;
  }
+a.dropdown-item img {
+    width: 30px;
+}
+
+a.dropdown-item{
+    text-align: center;
+}
