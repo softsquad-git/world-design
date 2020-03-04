@@ -52,9 +52,9 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="lang" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-globe"></i></a>
                     <div class="dropdown-menu" aria-labelledby="lang">
-                        <a class="dropdown-item" href="{{ url('locale/pl') }}"><img src="{{ asset('assets/flags/pl.png') }}"></a>
-                        <a class="dropdown-item" href="{{ url('locale/en') }}"><img src="{{ asset('assets/flags/en.png') }}"></a>
-                        <a class="dropdown-item" href="{{ url('locale/ru') }}"><img src="{{ asset('assets/flags/ru.png') }}"></a>
+                        <a class="dropdown-item text-center" href="{{ url('locale/pl') }}"><img style="width: 30px;" src="{{ asset('assets/flags/pl.png') }}"></a>
+                        <a class="dropdown-item text-center" href="{{ url('locale/en') }}"><img style="width: 30px;" src="{{ asset('assets/flags/en.png') }}"></a>
+                        <a class="dropdown-item text-center" href="{{ url('locale/ru') }}"><img style="width: 30px;" src="{{ asset('assets/flags/ru.png') }}"></a>
                     </div>
                 </li>
             </ul>
