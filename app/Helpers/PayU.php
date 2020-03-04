@@ -1,119 +1,74 @@
 <?php
 
-
 namespace App\Helpers;
 
-
+use App\Mail\User\SuccessPayment;
 use App\Models\CheckOut\CheckOut;
 use App\Models\Payments\PaymentPayu;
-use App\Models\Products\Product;
-use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Mail;
+use OpenPayU_Configuration;
+use OpenPayU_Order;
+use OpenPayU_Util;
 
 class PayU
 {
 
-    public static function auth()
+    public static function status($_token)
     {
-        $endpoint = 'https://secure.snd.payu.com/pl/standard/user/oauth/authorize';
-        $client = new Client();
-        $response = $client->request('GET', $endpoint, ['query' => [
-            'grant_type' => 'client_credentials',
-            'pos_id' => 377814,
-            'MD5' => 'cec7f96ee87b4457621da7bae8049ca1',
-            'client_id' => 377814,
-            'client_secret' => '9f452ecfba439d6958136de2bd88565e',
-        ]]);
+        $order = CheckOut::where('_token', $_token)
+            ->first();
+        if (isset($order->id) && $order->id > 0) {
+            $order->update([
+                'status' => Status::CHECKOUT_STATUS_ACCEPTED
+            ]);
+            $payment = PaymentPayu::where('order_token', $order->_token)
+                ->first();
+            $payment
+                ->delete();
 
-        $statusCode = $response->getStatusCode();
-        $content = $response->getBody();
-        $content = json_decode($content);
+            Mail::to($order->email)->send(new SuccessPayment());
+            return redirect()->route('home')
+                ->with('message', trans('front.payu.success'));
+        }
 
-        return $content->access_token;
+        return redirect()->route('home')
+            ->with('message', trans('front.payu.error'));
+
     }
 
     public static function payment($id)
     {
         $item = CheckOut::find($id);
+        $order = [];
+        $order['notifyUrl'] = route('payment.status', ['_token' => $item->_token]);
+        $order['continueUrl'] = route('payment.status', ['_token' => $item->_token]);
+        $order['customerIp'] = '127.0.0.1';
+        $order['merchantPosId'] = OpenPayU_Configuration::getOauthClientId() ? OpenPayU_Configuration::getOauthClientId() : OpenPayU_Configuration::getMerchantPosId();
+        $order['description'] = 'New Order';
+        $order['currencyCode'] = 'PLN';
+        $order['totalAmount'] = $item->total_price * 100;
+        $order['extOrderId'] = uniqid('', true);
 
-        $endpoint = config('app.payu.endpoint');
-        $merchantPosId = config('app.payu.merchantPosId');
-        $description = config('app.payu.description');
-        $currencyCode = config('app.payu.currencyCode');
-        $customerIp = config('app.payu.customerIp');
-        $redirectTo = route('payment.status', ['_token' => $item->_token]);
-        $totalAmount = $item->total_price * 100;
+        $order['products'][0]['name'] = 'Product 1';
+        $order['products'][0]['unitPrice'] = 1000;
+        $order['products'][0]['quantity'] = 1;
 
-        $ch = curl_init();
+        $order['buyer']['email'] = $item->email;
+        $order['buyer']['phone'] = $item->phone;
+        $order['buyer']['firstName'] = $item->name;
+        $order['buyer']['language'] = 'en';
 
-        curl_setopt($ch, CURLOPT_URL, $endpoint);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-        curl_setopt($ch, CURLOPT_HEADER, FALSE);
-
-        curl_setopt($ch, CURLOPT_POST, TRUE);
-
-        curl_setopt($ch, CURLOPT_POSTFIELDS, "{
-        \"notifyUrl\": \"$redirectTo\",
-        \"customerIp\": \"$customerIp\",
-        \"merchantPosId\": \"$merchantPosId\",
-        \"description\": \"$description\",
-        \"currencyCode\": \"$currencyCode\",
-        \"totalAmount\": \"$totalAmount\",
-        \"products\": [
-        {
-        \"name\": \"Wireless mouse\",
-        \"unitPrice\": \"15000\",
-        \"quantity\": \"1\"
-        },
-        {
-        \"name\": \"HDMI cable\",
-        \"unitPrice\": \"6000\",
-        \"quantity\": \"1\"
-        }
-        ]
-        }");
-
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-            "Content-Type: application/json",
-            "Authorization: Bearer ".self::auth()
-        ));
-
-        $response = curl_exec($ch);
-        curl_close($ch);
-
-        $response = json_decode($response);
-
-        if ($response->status->statusCode == 'SUCCESS')
-        {
+        $response = OpenPayU_Order::create($order);
+        $status_desc = OpenPayU_Util::statusDesc($response->getStatus());
+        if ($response->getStatus() == 'SUCCESS') {
             $data_payment = [];
             $data_payment['order_token'] = $item->_token;
-            $data_payment['order_id'] = $response->orderId;
+            $data_payment['order_id'] = $response->getResponse()->orderId;
             PaymentPayu::create($data_payment);
 
-            return redirect(url($response->redirectUri));
+            return redirect($response->getResponse()->redirectUri);
         }
-
-    }
-
-    public static function status($_token)
-    {
-        $order = PaymentPayu::where('_token', $_token)
-            ->first();
-
-        $ch = curl_init();
-
-        curl_setopt($ch, CURLOPT_URL, "https://secure.snd.payu.com/api/v2_1/orders/$order->order_id");
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-        curl_setopt($ch, CURLOPT_HEADER, FALSE);
-
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-            "Authorization: Bearer 3e5cac39-7e38-4139-8fd6-30adc06a61bd"
-        ));
-
-        $response = curl_exec($ch);
-        curl_close($ch);
-
-        dd($response);
-
+        dd($response->getResponse()->orderId);
     }
 
 }
