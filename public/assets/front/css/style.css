@@ -9211,9 +9211,9 @@ ul#errors {
      list-style: none;
  }
 a.dropdown-item img {
-    width: 30px;
+    width: 30px!important;
 }
 
 a.dropdown-item{
-    text-align: center;
+    text-align: center!important;
 }
