@@ -49,14 +49,9 @@
                     </div>
                 </li>
                 <li class="nav-item cta cta-colored"><a href="{{ route('basket') }}" class="nav-link"><span class="icon-shopping_cart"></span>({{ Basket::countProductsInBasket() }})</a></li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="lang" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-globe"></i></a>
-                    <div class="dropdown-menu" aria-labelledby="lang">
-                        <a class="dropdown-item text-center" href="{{ url('locale/pl') }}"><img style="width: 30px;" src="{{ asset('assets/flags/pl.png') }}"></a>
-                        <a class="dropdown-item text-center" href="{{ url('locale/en') }}"><img style="width: 30px;" src="{{ asset('assets/flags/en.png') }}"></a>
-                        <a class="dropdown-item text-center" href="{{ url('locale/ru') }}"><img style="width: 30px;" src="{{ asset('assets/flags/ru.png') }}"></a>
-                    </div>
-                </li>
+                <li class="nav-item"><a class="nav-link pr-1 pl-1" href="{{ url('locale/pl') }}"><img style="width: 20px;" src="{{ asset('assets/flags/pl.png') }}"></a></li>
+                <li class="nav-item"><a class="nav-link pr-1 pl-1" href="{{ url('locale/en') }}"><img style="width: 20px;" src="{{ asset('assets/flags/en.png') }}"></a></li>
+                <li class="nav-item"><a class="nav-link pr-1 pl-1" href="{{ url('locale/ru') }}"><img style="width: 20px;" src="{{ asset('assets/flags/ru.png') }}"></a></li>
             </ul>
         </div>
     </div>

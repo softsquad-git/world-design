@@ -9,5 +9,8 @@ return [
     'payu' => [
         'success' => 'Operation completed successfully',
         'error' => 'Something went wrong. Try again'
+    ],
+    'admin' => [
+        'error' => "Don't have access to this page"
     ]
 ];
