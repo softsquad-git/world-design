@@ -17,6 +17,16 @@
           action="{{ $item->id ? action('Admin\Pages\PageController@update', ['id' => $item->id]) : action('Admin\Pages\PageController@store') }}">
         @csrf
         <div class="form-group row">
+            <div class="col-lg-4">
+                <label for="locale">Wybierz język</label>
+                <select id="is_promo" class="form-control form-control-sm" name="locale">
+                    <option value="pl" {{ (old('locale') == 'pl' || $item->locale == 'pl') ? ' selected="selected"' : 'pl' }}>PL (Polski)</option>
+                    <option value="en" {{ (old('locale') == 'en' || $item->locale == 'en') ? ' selected="selected"' : 'en' }}>EN (Angielski)</option>
+                    <option value="ru" {{ (old('locale') == 'ru' || $item->locale == 'ru') ? ' selected="selected"' : 'ru' }}>RU (Rosyjski)</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
             <div class="col-lg-6">
                 <label for="title">Tytuł</label>
                 <input id="title" name="title" type="text" class="form-control form-control-sm" value="{{ old('title') ?? $item->title }}"

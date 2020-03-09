@@ -15,6 +15,7 @@ class Page extends Model
         'meta_title',
         'meta_keywords',
         'meta_description',
-        'menu_position'
+        'menu_position',
+        'locale'
     ];
 }
