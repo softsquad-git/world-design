@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Services\Admin\CheckOuts;
-
 
 use App\Mail\User\ChangeStatusOrder;
 use Illuminate\Support\Facades\Mail;

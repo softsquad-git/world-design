@@ -25,13 +25,13 @@
                     <td>
                         @switch($item->locale)
                             @case('pl')
-                            <img src="{{ asset('assets/flags/pl.png') }}" class="flag-language-admin">
+                            <img src="{{ asset('assets/flags/pl.png') }}" style="width: 30px!important;" class="flag-language-admin">
                             @break
                             @case('en')
-                            <img src="{{ asset('assets/flags/en.png') }}" class="flag-language-admin">
+                            <img src="{{ asset('assets/flags/en.png') }}" style="width: 30px!important;" class="flag-language-admin">
                             @break
                             @case('ru')
-                            <img src="{{ asset('assets/flags/ru.png') }}" class="flag-language-admin">
+                            <img src="{{ asset('assets/flags/ru.png') }}" style="width: 30px!important;" class="flag-language-admin">
                             @break
                         @endswitch
                     </td>
