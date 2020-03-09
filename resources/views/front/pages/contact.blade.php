@@ -18,6 +18,15 @@
     <section class="ftco-section contact-section bg-light">
         <div class="container">
             <div class="row block-9">
+                @if ($errors->any())
+                    <div class="alert alert-danger w-100">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <div class="col-md-6 order-md-last d-flex">
                     <form action="{{ route('contact.form') }}" method="post" class="bg-white p-5 contact-form">
                         @csrf

@@ -58,7 +58,9 @@ class ProductService
     {
         $data['status'] = $this->setStatus($data);
         //$data['colors'] = json_encode($data['colors']);
-        $data['sizes'] = json_encode($data['sizes']);
+        if (isset($data['sizes']) && is_array($data['sizes']))
+            $data['sizes'] = json_encode($data['sizes']);
+
         if ($data['is_promo'] == 1) {
             $data['is_news'] = 0;
         } elseif ($data['is_news'] == 1) {

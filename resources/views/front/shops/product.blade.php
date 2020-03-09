@@ -1,6 +1,8 @@
 @extends('layouts.app')
 @section('meta')
-    <title>{{ $product->title }}</title>
+    <title>{{ $product->meta_title ?? $product->title }}</title>
+    <meta name="keywords" content="{{ $product->meta_keywords ?? config('app.meta.keywords') }}">
+    <meta name="description" content="{{ $product->meta_description ?? config('app.meta.description') }}">
 @endsection
 @section('content')
 

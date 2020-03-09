@@ -28,7 +28,10 @@ class Product extends Model
         'old_price',
         'status',
         'views',
-        'locale'
+        'locale',
+        'meta_title',
+        'meta_keywords',
+        'meta_description'
     ];
 
     public function user()

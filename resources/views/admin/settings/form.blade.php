@@ -69,11 +69,17 @@
         </div>
         <div class="form-group row">
             <div class="col-lg-4">
-                <label for="is-logo">
-                    Czy wyświetlać logo
-                    <label for="is_logo_y"><input id="is_logo_y" type="radio" value="1"{{ old('is_logo') ?? $item->is_logo }} name="is_logo"> Tak</label>
-                    <label for="is_logo_n"><input id="is_logo_n" type="radio" value="0"{{ old('is_logo') ?? $item->is_logo }} name="is_logo"> Nie</label>
-                </label>
+                <label for="locale">Czy wyświetlać logo?</label>
+                <select id="is_promo" class="form-control form-control-sm" name="is_logo">
+                    <option
+                        value="1" {{ (old('is_logo') == '1' || $item->is_logo == '1') ? ' selected="selected"' : '1' }}>
+                        Tak
+                    </option>
+                    <option
+                        value="0" {{ (old('is_logo') == '0' || $item->is_logo == '0') ? ' selected="selected"' : '0' }}>
+                        Nie
+                    </option>
+                </select>
             </div>
         </div>
         <div class="form-group">

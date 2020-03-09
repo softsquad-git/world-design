@@ -17,13 +17,23 @@
           action="{{ $item->id ? action('Admin\Products\ProductController@update', ['id' => $item->id]) : action('Admin\Products\ProductController@store') }}"
           enctype="multipart/form-data">
         @csrf
+        <input type="hidden" name="item" value="{{ $item->id ?? 0 }}">
         <div class="form-group row">
             <div class="col-lg-4">
                 <label for="locale">Wybierz język</label>
                 <select id="is_promo" class="form-control form-control-sm" name="locale">
-                    <option value="pl" {{ (old('locale') == 'pl' || $item->locale == 'pl') ? ' selected="selected"' : 'pl' }}>PL (Polski)</option>
-                    <option value="en" {{ (old('locale') == 'en' || $item->locale == 'en') ? ' selected="selected"' : 'en' }}>EN (Angielski)</option>
-                    <option value="ru" {{ (old('locale') == 'ru' || $item->locale == 'ru') ? ' selected="selected"' : 'ru' }}>RU (Rosyjski)</option>
+                    <option
+                        value="pl" {{ (old('locale') == 'pl' || $item->locale == 'pl') ? ' selected="selected"' : 'pl' }}>
+                        PL (Polski)
+                    </option>
+                    <option
+                        value="en" {{ (old('locale') == 'en' || $item->locale == 'en') ? ' selected="selected"' : 'en' }}>
+                        EN (Angielski)
+                    </option>
+                    <option
+                        value="ru" {{ (old('locale') == 'ru' || $item->locale == 'ru') ? ' selected="selected"' : 'ru' }}>
+                        RU (Rosyjski)
+                    </option>
                 </select>
             </div>
         </div>
@@ -37,36 +47,42 @@
             <div class="col-lg-4">
                 <label for="category">Kategoria</label>
                 <select id="category" name="category_id" class="form-control-sm form-control">
-                    <option value=""{{ (old('category_id')=='0' || $item->category_id=='0') ? ' selected="selected"' : '' }} selected>Wybierz kategorię</option>
+                    <option value=""
+                            {{ (old('category_id')=='0' || $item->category_id=='0') ? ' selected="selected"' : '' }} selected>
+                        Wybierz kategorię
+                    </option>
                     @foreach($categories as $category)
-                        <option value="{{ $category->id }}"{{ (old('category_id')==$category->id || $item->category_id==$category->id) ? ' selected="selected"' : '' }}>{{ $category->name }}</option>
+                        <option
+                            value="{{ $category->id }}"{{ (old('category_id')==$category->id || $item->category_id==$category->id) ? ' selected="selected"' : '' }}>{{ $category->name }}</option>
                     @endforeach
                 </select>
             </div>
         </div>
         <div class="form-group">
             <label for="description">Krótki opis</label>
-            <textarea id="description" name="description" class="form-control" placeholder="Krótki opis produktu">{{ old('description') ? old('description') : $item->description }}</textarea>
+            <textarea id="description" name="description" class="form-control"
+                      placeholder="Krótki opis produktu">{{ old('description') ? old('description') : $item->description }}</textarea>
             <script>
                 CKEDITOR.replace('description');
             </script>
         </div>
         <div class="form-group">
             <label for="content">Treść produktu</label>
-            <textarea id="content" name="content" class="form-control" placeholder="Opis produktu">{{ old('content') ? old('content') : $item->content }}</textarea>
+            <textarea id="content" name="content" class="form-control"
+                      placeholder="Opis produktu">{{ old('content') ? old('content') : $item->content }}</textarea>
             <script>
                 CKEDITOR.replace('content');
             </script>
         </div>
         <div class="form-group row">
-{{--            <div class="col-lg-6">--}}
-{{--                <label for="colors">Wybierz kolory</label>--}}
-{{--                <select multiple class="form-control form-control-sm" id="colors" name="colors[]">--}}
-{{--                    @foreach($colors as $color)--}}
-{{--                        <option value="{{ $color->code }}" style="background: {{ $color->code }}"></option>--}}
-{{--                    @endforeach--}}
-{{--                </select>--}}
-{{--            </div>--}}
+            {{--            <div class="col-lg-6">--}}
+            {{--                <label for="colors">Wybierz kolory</label>--}}
+            {{--                <select multiple class="form-control form-control-sm" id="colors" name="colors[]">--}}
+            {{--                    @foreach($colors as $color)--}}
+            {{--                        <option value="{{ $color->code }}" style="background: {{ $color->code }}"></option>--}}
+            {{--                    @endforeach--}}
+            {{--                </select>--}}
+            {{--            </div>--}}
             <div class="col-lg-6">
                 <label for="sizes">Wybierz rozmiary</label>
                 <select multiple class="form-control-sm form-control" id="sizes" name="sizes[]">
@@ -94,8 +110,14 @@
             <div class="col-lg-4">
                 <label for="availability">Czy produkt jest dostępny?</label>
                 <select id="availability" class="form-control form-control-sm" name="availability">
-                    <option value="1" {{ (old('availability') == '1' || $item->availability == '1') ? ' selected="selected"' : '1' }}>TAK</option>
-                    <option value="0" {{ (old('availability') == '0' || $item->availability == '0') ? ' selected="selected"' : '0' }}>NIE</option>
+                    <option
+                        value="1" {{ (old('availability') == '1' || $item->availability == '1') ? ' selected="selected"' : '1' }}>
+                        TAK
+                    </option>
+                    <option
+                        value="0" {{ (old('availability') == '0' || $item->availability == '0') ? ' selected="selected"' : '0' }}>
+                        NIE
+                    </option>
                 </select>
             </div>
         </div>
@@ -103,23 +125,55 @@
             <div class="col-lg-4">
                 <label for="is_promo">Czy produkt jest w promocji?</label>
                 <select id="is_promo" class="form-control form-control-sm" name="is_promo">
-                    <option value="0" {{ (old('is_promo') == '0' || $item->is_promo == '0') ? ' selected="selected"' : '0' }}>NIE</option>
-                    <option value="1" {{ (old('is_promo') == '1' || $item->is_promo == '1') ? ' selected="selected"' : '1' }}>TAK</option>
+                    <option
+                        value="0" {{ (old('is_promo') == '0' || $item->is_promo == '0') ? ' selected="selected"' : '0' }}>
+                        NIE
+                    </option>
+                    <option
+                        value="1" {{ (old('is_promo') == '1' || $item->is_promo == '1') ? ' selected="selected"' : '1' }}>
+                        TAK
+                    </option>
                 </select>
             </div>
             <div id="is-news" class="col-lg-4">
                 <label for="is_news">Czy produkt jest nowością?</label>
                 <select id="is_news" class="form-control form-control-sm" name="is_news">
-                    <option value="0" {{ (old('is_news') == '0' || $item->is_news == '0') ? ' selected="selected"' : '0' }}>NIE</option>
-                    <option value="1" {{ (old('is_news') == '1' || $item->is_news == '1') ? ' selected="selected"' : '1' }}>TAK</option>
+                    <option
+                        value="0" {{ (old('is_news') == '0' || $item->is_news == '0') ? ' selected="selected"' : '0' }}>
+                        NIE
+                    </option>
+                    <option
+                        value="1" {{ (old('is_news') == '1' || $item->is_news == '1') ? ' selected="selected"' : '1' }}>
+                        TAK
+                    </option>
                 </select>
             </div>
             <div id="old-price" class="col-lg-4">
                 <label for="availability">Poprzednia cena</label>
-                <input id="old_price" class="form-control-sm form-control" value="{{ old('old_price') ? old('old_price') : $item->old_price }}"
+                <input id="old_price" class="form-control-sm form-control"
+                       value="{{ old('old_price') ? old('old_price') : $item->old_price }}"
                        placeholder="Poprzednia cena" name="old_price" type="number" step="0.01">
             </div>
         </div>
+
+        <div class="form-group">
+            <label for="meta-title">Meta tytuł</label>
+            <input id="meta-title" type="text" class="form-control-sm form-control" name="meta_title"
+                   value="{{ old('meta_title') ?? $item->meta_title }}"
+                   placeholder="Meta tytuł">
+        </div>
+        <div class="form-group">
+            <label for="keywords">Słowa kluczowe</label>
+            <input id="keywords" type="text" class="form-control-sm form-control" name="meta_keywords"
+                   value="{{ old('meta_keywords') ?? $item->meta_keywords }}"
+                   placeholder="Słowa kluczowe">
+        </div>
+        <div class="form-group">
+            <label for="description">Opis</label>
+            <textarea id="description" class="form-control" rows="3" placeholder="Meta opis"
+                      mame="meta_description">{{ old('meta_description') ?? $item->meta_description }}</textarea>
+        </div>
+
         <div class="form-group">
             @if($item->id == 0)
                 <div class="form-group">
@@ -136,8 +190,10 @@
             <div class="form-group row">
                 @foreach($item->images as $image)
                     <div class="col-lg-3">
-                        <div id="image-{{ $image->id }}" class="images-form" style="background-image: url({{ $image->getImage() }})">
-                            <span id="remove-{{ $image->id }}" class="btn btn-sm btn-danger" title="Usuń"><i class="fa fa-ban"></i> </span>
+                        <div id="image-{{ $image->id }}" class="images-form"
+                             style="background-image: url({{ $image->getImage() }})">
+                            <span id="remove-{{ $image->id }}" class="btn btn-sm btn-danger" title="Usuń"><i
+                                    class="fa fa-ban"></i> </span>
                         </div>
                     </div>
                     <script>
@@ -157,30 +213,28 @@
                 @endforeach
             </div>
         @endif
-        <form method="post" action="{{ action('Admin\Products\ProductController@uploadImages') }}" enctype="multipart/form-data">
+        <form method="post" action="{{ action('Admin\Products\ProductController@uploadImages') }}"
+              enctype="multipart/form-data">
             @csrf
             <input type="hidden" value="{{ $item->id }}" name="item_id">
-                <div class="form-group">
-                    <label for="images">Dodaj zdjęcia</label>
-                    <input type="file" id="images" class="form-control-sm form-control" name="images[]"
-                           multiple>
-                </div>
+            <div class="form-group">
+                <label for="images">Dodaj zdjęcia</label>
+                <input type="file" id="images" class="form-control-sm form-control" name="images[]"
+                       multiple>
+            </div>
             <button class="btn btn-outline-dark btn-sm">Dodaj</button>
         </form>
     @endif
 @endsection
 <script src="{{ asset('assets/front/js/jquery.min.js') }}"></script>
 <script>
-    $(document).ready(function(){
+    $(document).ready(function () {
         $('#old-price').hide();
-        $('#is_promo').on('change', function() {
-            if (this.value == '1')
-            {
+        $('#is_promo').on('change', function () {
+            if (this.value == '1') {
                 $("#old-price").show();
                 $('#is-news').hide();
-            }
-            else
-            {
+            } else {
                 $("#old-price").hide();
                 $('#is-news').show();
             }

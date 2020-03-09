@@ -16,6 +16,7 @@
     <form method="post"
           action="{{ $item->id ? action('Admin\Pages\PageController@update', ['id' => $item->id]) : action('Admin\Pages\PageController@store') }}">
         @csrf
+        <input type="hidden" name="item" value="{{ $item->id ?? 0 }}">
         <div class="form-group row">
             <div class="col-lg-4">
                 <label for="locale">Wybierz język</label>
