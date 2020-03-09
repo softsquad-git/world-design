@@ -16,7 +16,7 @@ class CheckOutService
             'status' => $status
         ]);
 
-        Mail::to($item->email)->send(new ChangeStatusOrder($item));
+        Mail::to("$item->email")->send(new ChangeStatusOrder($item));
 
         return $item;
     }
