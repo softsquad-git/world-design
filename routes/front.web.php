@@ -62,3 +62,5 @@ Route::group(['prefix' => 'newsletter'], function (){
         ->name('newsletter.remove');
 });
 
+Route::post('contact-form', 'Front\Pages\ContactController@message')
+    ->name('contact.form');

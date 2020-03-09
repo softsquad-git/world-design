@@ -53,7 +53,7 @@
 <div id="app">
     @if(Session::has('message'))
         <div id="msg-session" class="fixed-top messages">
-           {{ Session::get('message') }}
+            {{ Session::get('message') }}
         </div>
     @endif
     @include('front.menu')
@@ -93,6 +93,13 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 <script src="{{ asset('assets/front/js/google-map.js') }}"></script>
 <script src="{{ asset('assets/front/js/main.js') }}"></script>
+<script>
+    $(document).ready(function () {
+        setTimeout(function() {
+            $('#msg-session').hide();
+        }, 1200);
+    });
+</script>
 <!-- END -->
 </body>
 </html>
