@@ -11,7 +11,8 @@
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Tytuł</th>
-                <th scope="col">alias</th>
+                <th scope="col">Alias</th>
+                <th scope="col">Język</th>
                 <th scope="col">Akcja</th>
             </tr>
             </thead>
@@ -21,6 +22,19 @@
                     <th scope="row">{{ $item->id }}</th>
                     <td>{{ $item->title }}</td>
                     <td>{{ $item->alias }}</td>
+                    <td>
+                        @switch($item->locale)
+                            @case('pl')
+                            <img src="{{ asset('assets/flags/pl.png') }}" class="flag-language-admin">
+                            @break
+                            @case('en')
+                            <img src="{{ asset('assets/flags/en.png') }}" class="flag-language-admin">
+                            @break
+                            @case('ru')
+                            <img src="{{ asset('assets/flags/ru.png') }}" class="flag-language-admin">
+                            @break
+                        @endswitch
+                    </td>
                     <td>
                         <a href="{{ action('Admin\Pages\PageController@edit', ['id' => $item->id]) }}"
                            title="Edytuj" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i></a>

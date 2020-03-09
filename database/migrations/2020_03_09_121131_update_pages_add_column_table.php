@@ -14,7 +14,7 @@ class UpdatePagesAddColumnTable extends Migration
     public function up()
     {
         Schema::table('pages', function (Blueprint $table) {
-            $table->integer('locale');
+            $table->string('locale');
         });
     }
 
