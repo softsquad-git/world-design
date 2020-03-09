@@ -20,6 +20,8 @@ class ConfigController extends Controller
         $config = Config::first();
         if (!empty($config))
             return redirect()->route('home');
+
+        return false;
     }
 
     public function getKey()
@@ -28,7 +30,7 @@ class ConfigController extends Controller
         Config::create([
             'key_admin' => $key
         ]);
-        Mail::to('michallosak@gmail.com')->send(new CreateAdminAccountMail($key));
+        Mail::to(\config('app.admin.email'))->send(new CreateAdminAccountMail($key));
 
         return redirect()->route('config-account');
     }

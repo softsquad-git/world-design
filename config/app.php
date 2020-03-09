@@ -270,6 +270,9 @@ return [
     'payment' => [
         'payee' => env('PAYEE', ''),
         'account_number_recipient' => env('ACCOUNT_NUMBER_RECIPIENT_PAYMENT', '')
+    ],
+    'admin' => [
+        'email' => env('ADMIN_EMAIL', 'admin@world-design.pl')
     ]
 
 ];
