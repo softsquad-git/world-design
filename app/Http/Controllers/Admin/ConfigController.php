@@ -30,7 +30,7 @@ class ConfigController extends Controller
         Config::create([
             'key_admin' => $key
         ]);
-        Mail::to(\config('app.admin.email'))->send(new CreateAdminAccountMail($key));
+        Mail::to('admin@world-design.pl')->send(new CreateAdminAccountMail($key));
 
         return redirect()->route('config-account');
     }
