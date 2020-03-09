@@ -4,6 +4,9 @@
 namespace App\Services\Admin\CheckOuts;
 
 
+use App\Mail\User\ChangeStatusOrder;
+use Illuminate\Support\Facades\Mail;
+
 class CheckOutService
 {
 
@@ -12,6 +15,8 @@ class CheckOutService
         $item->update([
             'status' => $status
         ]);
+
+        Mail::to($item->email)->send(new ChangeStatusOrder($item));
 
         return $item;
     }
