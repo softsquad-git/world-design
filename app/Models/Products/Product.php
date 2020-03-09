@@ -27,7 +27,8 @@ class Product extends Model
         'is_news',
         'old_price',
         'status',
-        'views'
+        'views',
+        'locale'
     ];
 
     public function user()
