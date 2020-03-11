@@ -58,12 +58,8 @@
                     </div>
                 @endforeach
             </div>
-            <div class="row mt-5">
-                <div class="col text-center">
-                    <div class="block-27">
-                        {{ $products->render() }}
-                    </div>
-                </div>
+            <div class="mt-5">
+                {{ $products->render() }}
             </div>
         </div>
     </section>

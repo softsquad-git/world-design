@@ -21,6 +21,36 @@ return [
     ],
     'user-key' => [
         'empty' => 'Error'
-    ]
+    ],
+    'blade' => [
+        'login' => [
+            'title' => 'Login',
+            'email' => 'E-mail',
+            'password' => 'Password',
+            'forgot_pass' => 'Remind password',
+            'remember' => 'Remember me'
+        ],
+        'register' => [
+            'title' => 'Register',
+            'email' => 'E-mail',
+            'password' => 'Password',
+            'name' => 'Name',
+            'confirm_pass' => 'Confirm password',
+            'country' => 'Country'
+        ],
+        'activate' => [
+            'title' => 'Activate account',
+            'key' => 'Verify key'
+        ],
+        'reset_password' => [
+            'title' => 'Reset password',
+            'email' => 'E-mail',
+        ],
+        'new_password' => [
+            'title' => 'New password',
+            'password' => 'Password',
+            'next' => 'Next'
+        ]
+    ],
 
 ];

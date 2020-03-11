@@ -86,7 +86,7 @@ Route::group(['prefix' => 'admin'], function (){
 
     Route::group(['prefix' => 'accounts'], function (){
         Route::get('account', 'Admin\Accounts\AccountController@account');
-        Route::post('update', 'Admin\Accounts\AccountControlller@update');
+        Route::post('update', 'Admin\Accounts\AccountController@update');
         Route::get('change-password', 'Admin\Accounts\AccountController@changePass');
         Route::post('new-pass', 'Admin\Accounts\AccountController@newPass');
     });

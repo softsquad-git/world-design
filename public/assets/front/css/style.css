@@ -3873,13 +3873,14 @@ input[type="button"].btn-block {
   border-bottom-right-radius: 0.25rem; }
 
 .page-item.active .page-link {
-  z-index: 1;
-  color: #fff;
-  background-color: #78d5ef;
-  border-color: #78d5ef; }
+    z-index: 1;
+    color: #656565;
+    background-color: #ecebf1;
+    border-color: #f8f9fa;
+}
 
 .page-item.disabled .page-link {
-  color: #6c757d;
+  color: #4d555d;
   pointer-events: none;
   cursor: auto;
   background-color: #fff;

@@ -4,7 +4,7 @@
     - Profil
 @endsection
 @section('content')
-    <form method="post" action="{{ action('Admin\Accounts\AccountControlller@update') }}">
+    <form method="post" action="{{ action('Admin\Accounts\AccountController@update') }}">
         @csrf
         <div class="form-group row">
             <div class="col-lg-6">
