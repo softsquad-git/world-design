@@ -1,7 +1,11 @@
 <?php
-Route::get('locale/{locale}', function ($locale){
+Route::get('locale/{locale}', function ($locale) {
     Session::put('locale', $locale);
     return redirect()->back();
+});
+
+Route::get('cookie', function () {
+    return view('front.cookie');
 });
 
 Route::group(['middleware' => 'local_id'], function () {
@@ -13,7 +17,7 @@ Route::group(['middleware' => 'local_id'], function () {
         Route::post('activate-account', 'Auth\ActivateController@activateAccount')
             ->name('activate_account');
 
-        Route::group(['middleware' => 'activated'], function (){
+        Route::group(['middleware' => 'activated'], function () {
             include 'user.web.php';
 
             Route::group(['middleware' => 'admin'], function () {

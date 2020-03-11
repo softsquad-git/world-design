@@ -9211,3 +9211,18 @@ ul#errors {
 }ul#errors li {
      list-style: none;
  }
+.cookie-info {
+    color: #fff!important;
+    border-radius: 0;
+    font-size: 20px;
+    z-index: 1;
+    position: fixed;
+    bottom: 0;
+}
+.bg-cookie{
+    background: url("../../cookie.jpg");
+    background-size: cover;
+    background-position: center center;
+    height: 400px;
+    margin-bottom: 50px;
+}

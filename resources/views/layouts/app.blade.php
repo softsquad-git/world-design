@@ -51,6 +51,7 @@
 </head>
 <body>
 <div id="app">
+    <button class="btn btn-secondary cookie-info" data-toggle="modal" data-target="#cookieModal"><i class="fa fa-cookie-bite"></i></button>
     @if(Session::has('message'))
         <div id="msg-session" class="fixed-top messages">
             {{ Session::get('message') }}
@@ -76,6 +77,7 @@
 </div>
 
 @yield('scripts')
+
 
 <script src="{{ asset('assets/front/js/jquery.min.js') }}"></script>
 <script src="{{ asset('assets/front/js/jquery-migrate-3.0.1.min.js') }}"></script>
