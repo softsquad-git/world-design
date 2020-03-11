@@ -41,7 +41,7 @@ class PayU
     {
         $item = CheckOut::find($id);
         $order = [];
-        $order['notifyUrl'] = route('payment.check');
+        $order['notifyUrl'] = route('payment.status', ['_token' => $item->_token]);
         $order['continueUrl'] = route('payment.status', ['_token' => $item->_token]);
         $order['customerIp'] = '127.0.0.1';
         $order['merchantPosId'] = OpenPayU_Configuration::getOauthClientId() ? OpenPayU_Configuration::getOauthClientId() : OpenPayU_Configuration::getMerchantPosId();

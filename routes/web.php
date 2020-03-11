@@ -52,3 +52,15 @@ Route::get('create-admin', 'Admin\ConfigController@create')
 
 Route::post('create-admin-acc', 'Admin\ConfigController@createAdminAccount')
     ->name('admin.account.store');
+
+Route::get('reset-password', 'Auth\ResetPasswordController@view')
+    ->name('reset.view');
+
+Route::post('send-verify-key', 'Auth\ResetPasswordController@sendVerifyKey')
+    ->name('reset');
+
+Route::get('new-password/{_token}', 'Auth\ResetPasswordController@newPassView')
+    ->name('password.new');
+
+Route::post('password-reset', 'Auth\ResetPasswordController@resetPassword')
+    ->name('password.reset');

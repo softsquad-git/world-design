@@ -14,4 +14,10 @@ Route::group(['prefix' => 'user'], function (){
     Route::get('order/{id}', 'User\Orders\OrderController@find')
         ->name('user.order');
 
+    Route::get('change-password-view', 'User\Settings\SettingController@changePass')
+        ->name('change.password.view');
+
+    Route::post('change-password', 'User\Settings\SettingController@newPass')
+        ->name('change.password.user');
+
 });

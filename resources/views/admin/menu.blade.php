@@ -80,6 +80,9 @@
                 <a class="nav-link" href="{{ action('Admin\Shipments\ShipmentPriceController@form') }}">Wysyłka</a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="{{ action('Admin\Accounts\AccountController@account') }}"><i class="fa fa-cog"></i></a>
+            </li>
+            <li class="nav-item">
                 <form method="post" action="{{ route('logout') }}">
                     @csrf
                     <button type="submit" class="nav-link" style="background: transparent;border: 0;color: red;"><i class="fa fa-sign-out-alt"></i></button>

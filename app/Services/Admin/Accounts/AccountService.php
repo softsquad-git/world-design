@@ -1,12 +1,11 @@
 <?php
 
-
-namespace App\Services\User\Settings;
+namespace App\Services\Admin\Accounts;
 
 use App\User;
 use Illuminate\Support\Facades\Hash;
 
-class SettingService
+class AccountService
 {
 
     public function update(array $user, array $contact, User $item)

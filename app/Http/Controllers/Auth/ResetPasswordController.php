@@ -3,28 +3,57 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
-use Illuminate\Foundation\Auth\ResetsPasswords;
+use App\Http\Requests\Auth\ResetPasswordRequest;
+use App\Http\Requests\Auth\SendKeyResetPasswordRequest;
+use App\Services\Auth\AuthService;
+use Illuminate\Http\Request;
 
 class ResetPasswordController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Password Reset Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller is responsible for handling password reset requests
-    | and uses a simple trait to include this behavior. You're free to
-    | explore this trait and override any methods you wish to tweak.
-    |
-    */
-
-    use ResetsPasswords;
 
     /**
-     * Where to redirect users after resetting their password.
-     *
-     * @var string
+     * @var AuthService
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    private $service;
+
+    public function __construct(AuthService $service)
+    {
+        $this->service = $service;
+    }
+
+    public function view()
+    {
+        return view('auth.reset');
+    }
+
+    public function sendVerifyKey(SendKeyResetPasswordRequest $request)
+    {
+        $this->service->generateVerifyUrl($request->all());
+
+        return redirect()->route('home')
+            ->with('message', trans('auth.password.send-key'));
+    }
+
+    public function newPassView($_token)
+    {
+        return view('auth.new-password', [
+            '_token' => $_token
+        ]);
+    }
+
+    public function resetPassword(ResetPasswordRequest $request)
+    {
+        $item = $this->service->resetPassword($request->all());
+
+        if ($item == true)
+        {
+            return redirect()
+                ->route('home')
+                ->with('message', trans('auth.password.success-reset'));
+        }
+
+        return redirect()->back()
+            ->with('message', trans('auth.user-key.empty'));
+    }
+
 }

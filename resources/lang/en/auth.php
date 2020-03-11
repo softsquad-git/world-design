@@ -15,5 +15,12 @@ return [
 
     'failed' => 'These credentials do not match our records.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
+    'password' => [
+        'send-key' => 'Link has been sent to the address provided',
+        'success-reset' => 'Success'
+    ],
+    'user-key' => [
+        'empty' => 'Error'
+    ]
 
 ];

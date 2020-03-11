@@ -83,4 +83,11 @@ Route::group(['prefix' => 'admin'], function (){
         Route::get('/', 'Admin\Shipments\ShipmentPriceController@form');
         Route::post('form', 'Admin\Shipments\ShipmentPriceController@store');
     });
+
+    Route::group(['prefix' => 'accounts'], function (){
+        Route::get('account', 'Admin\Accounts\AccountController@account');
+        Route::post('update', 'Admin\Accounts\AccountControlller@update');
+        Route::get('change-password', 'Admin\Accounts\AccountController@changePass');
+        Route::post('new-pass', 'Admin\Accounts\AccountController@newPass');
+    });
 });

@@ -39,7 +39,7 @@ class PageController extends Controller
     {
         $item = $this->repository->find($id);
         if (!empty($item))
-            return view('admin.pages.show', ['item' => $item]);
+            return view('admin.pages.show', ['page' => $item]);
 
         return Redirections::redirectToError($this->toMethod);
     }

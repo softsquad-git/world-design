@@ -1,28 +1,36 @@
 <?php
 
-namespace App\Http\Controllers\User\Settings;
+namespace App\Http\Controllers\Admin\Accounts;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\User\Settings\ChangePasswordRequest;
-use App\Http\Requests\User\SettingRequest;
-use App\Repositories\User\Settings\SettingRepository;
-use App\Services\User\Settings\SettingService;
+use App\Http\Requests\Admin\Accounts\ChangePasswordRequest;
+use App\Http\Requests\Admin\Accounts\SettingRequest;
+use App\Repositories\Admin\Accounts\AccountRepository;
+use App\Services\Admin\Accounts\AccountService;
+use Illuminate\Http\Request;
 
-class SettingController extends Controller
+class AccountController extends Controller
 {
     /**
-     * @var SettingRepository
-     * @var SettingService
+     * @var AccountService
+     * @var AccountRepository
      */
-    private $repository;
     private $service;
-    private $toMethod;
+    private $repository;
 
-    public function __construct(SettingRepository $repository, SettingService $service)
+    public function __construct(AccountRepository $repository, AccountService $service)
     {
-        $this->repository = $repository;
         $this->service = $service;
-        $this->toMethod = 'User\Settings\SettingController@items';
+        $this->repository = $repository;
+    }
+
+    public function account()
+    {
+        $item = $this->repository->item();
+
+        return view('admin.accounts.form', [
+            'item' => $item
+        ]);
     }
 
     public function update(SettingRequest $request)
@@ -32,12 +40,12 @@ class SettingController extends Controller
         $contact = $request->only(['post_code', 'city', 'street', 'address', 'country', 'phone']);
         $this->service->update($user, $contact, $item);
 
-        return redirect()->route('user.profile');
+        return redirect()->back();
     }
 
     public function changePass()
     {
-        return view('user.password');
+        return view('admin.accounts.password');
     }
 
     public function newPass(ChangePasswordRequest $request)

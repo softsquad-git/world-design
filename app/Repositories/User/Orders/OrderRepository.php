@@ -12,8 +12,7 @@ class OrderRepository
 
     public function items()
     {
-        $user = $this->find();
-        $items = $user->orders()->orderBy('id', 'DESC')
+        $items = CheckOut::where('email', Auth::user()->email)->orderBy('id', 'DESC')
             ->paginate(20);
 
         return $items;

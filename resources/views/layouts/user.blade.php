@@ -14,7 +14,11 @@
 </head>
 <body>
 <div class="container">
-
+    @if(Session::has('message'))
+        <div id="msg-session" class="fixed-top messages">
+            {{ Session::get('message') }}
+        </div>
+    @endif
     @include('user.menu')
     <div class="container mt-5 pt-lg-5">
         @yield('content')
@@ -31,5 +35,12 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function () {
+        setTimeout(function() {
+            $('#msg-session').hide();
+        }, 1200);
+    });
+</script>
 </body>
 </html>

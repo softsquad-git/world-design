@@ -51,4 +51,6 @@
         </div>
     </div>
 </form>
+
+    <a href="{{ route('change.password.view') }}" class="mt-5">Zmień hasło</a>
 @endsection
