@@ -86,12 +86,18 @@
             <div class="col-lg-6">
                 <label for="sizes">Wybierz rozmiary</label>
                 <select multiple class="form-control-sm form-control" id="sizes" name="sizes[]">
-                    <option value="xs">XS</option>
-                    <option value="s">S</option>
-                    <option value="m">M</option>
-                    <option value="l">L</option>
-                    <option value="xl">XL</option>
-                    <option value="xxl">XXL</option>
+                    <option value="34">34</option>
+                    <option value="36">36</option>
+                    <option value="40">40</option>
+                    <option value="42">42</option>
+                    <option value="44">44</option>
+                    <option value="46">46</option>
+                    <option value="48">48</option>
+                    <option value="50">50</option>
+                    <option value="52">52</option>
+                    <option value="54">54</option>
+                    <option value="56">56</option>
+                    <option value="58">58</option>
                 </select>
             </div>
         </div>
