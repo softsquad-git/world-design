@@ -88,6 +88,7 @@
                 <select multiple class="form-control-sm form-control" id="sizes" name="sizes[]">
                     <option value="34">34</option>
                     <option value="36">36</option>
+                    <option value="38">38</option>
                     <option value="40">40</option>
                     <option value="42">42</option>
                     <option value="44">44</option>
