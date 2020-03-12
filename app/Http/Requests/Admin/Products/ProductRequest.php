@@ -27,8 +27,8 @@ class ProductRequest extends FormRequest
         $data['title'] = 'required|min:3|string';
         $data['category_id'] = 'required|integer';
         $data['price'] = 'required';
-        $data['description'] = 'required|min:10';
-        $data['content'] = 'required|min:50';
+        $data['description'] = 'required|min:1';
+        $data['content'] = 'required|min:5';
         if ($this->get('item') > 0){
             $data['sizes'] = 'array|nullable';
         }else{
