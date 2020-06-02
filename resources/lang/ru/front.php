@@ -1,10 +1,10 @@
 <?php
 
 return [
-    'newsletter.save' => 'Dziękujemy za zapis do newslettera',
-    'newsletter.remove' => 'Twoje dane zostały usunięte z naszej listy',
-    'payu.success' => 'Dziękujemy za dokonanie płatności',
-    'payu.error' => 'Wystąpił problem. Prawdopodobnie Twoje zamówienie już zostało opłacone. W razie pytań napisz do nas.',
+    'newsletter.save' => 'спасибо за подписку',
+    'newsletter.remove' => 'Ваши данные удаленные из списка',
+    'payu.success' => 'Спасибо за оплату',
+    'payu.error' => 'Ошибка. Вероятно твой заказ оплачен. По вопросам, обращайтесь',
     'cookie' => 'Этот сайт использует куки. Оставаясь на сайте и используя его ресурсы, вы соглашаетесь на их использование.
     Вы можете указать условия хранения или доступа к куки-файлу в вашем браузере.',
     'more' => 'более'

@@ -65,7 +65,8 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'admin' => Middleware\AdminAccountMiddleware::class,
         'activated' => Middleware\ActivatedAccountMiddleware::class,
-        'local_id' => Middleware\LocalIDSession::class
+        'local_id' => Middleware\LocalIDSession::class,
+        'language' => Middleware\Language::class
     ];
 
     /**

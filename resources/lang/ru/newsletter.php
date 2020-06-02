@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'title' => 'Subskrybuj',
-    'sub_title' => 'Zapisz się do newslettera',
-    'placeholder' => 'Podaj adres e-mail'
+    'title' => 'Подписывайся',
+    'sub_title' => 'подписка на невслеттер',
+    'placeholder' => 'дайте мне ваш адрес электронной почты'
 ];

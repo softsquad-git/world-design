@@ -8,7 +8,7 @@ Route::get('cookie', function () {
     return view('front.cookie');
 });
 
-Route::group(['middleware' => 'local_id'], function () {
+Route::group(['middleware' => ['local_id', 'language']], function () {
     Auth::routes();
 
     Route::group(['middleware' => ['auth']], function () {

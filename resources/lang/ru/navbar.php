@@ -1,10 +1,11 @@
 <?php
 
 return [
-    'home' => 'Strona główna',
-    'shop' => 'Sklep',
-    'contact' => 'Kontakt',
-    'login' => 'Zaloguj się',
-    'register' => 'Zarejestruj się',
-    'logout' => 'Wyloguj'
+    'home' => 'главная',
+    'shop' => 'магазин',
+    'contact' => 'контакты',
+    'login' => 'войти в систему',
+    'register' => 'зарегистрироваться',
+    'logout' => 'выйти',
+    'menu' => 'меню'
 ];

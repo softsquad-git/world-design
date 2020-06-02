@@ -2,40 +2,40 @@
 
 return [
     'password' => [
-        'send-key' => 'Link has been sent to the address provided',
-        'success-reset' => 'success'
+        'send-key' => 'Ссылка была отправлена ​​на указанный адрес',
+        'success-reset' => 'успех'
     ],
     'user-key' => [
-        'empty' => 'Error'
+        'empty' => 'ошибка'
     ],
     'blade' => [
         'login' => [
-            'title' => 'Zaloguj się',
+            'title' => 'войти в систему',
             'email' => 'E-mail',
-            'password' => 'Hasło',
-            'forgot_pass' => 'Przypomnij hasło',
-            'remember' => 'Zapamiętaj mnie'
+            'password' => 'пароль',
+            'forgot_pass' => 'напомнить пароль',
+            'remember' => 'Запомни меня'
         ],
         'register' => [
-            'title' => 'Zarejestruj się',
+            'title' => 'зарегистрироваться',
             'email' => 'E-mail',
-            'password' => 'Hasło',
-            'name' => 'Imię',
-            'confirm_pass' => 'Potwierdź hasło',
-            'country' => 'Kraj'
+            'password' => 'пароль',
+            'name' => 'имя',
+            'confirm_pass' => 'Подтвердите Пароль',
+            'country' => 'страна'
         ],
         'activate' => [
-            'title' => 'Aktywuj konto',
-            'key' => 'Kod weryfikacyjny'
+            'title' => 'активировать аккаунт',
+            'key' => 'Проверяющий код'
         ],
         'reset_password' => [
-            'title' => 'Reset password',
+            'title' => 'Сброс пароля',
             'email' => 'E-mail',
         ],
         'new_password' => [
-            'title' => 'New password',
-            'password' => 'Password',
-            'next' => 'Next'
+            'title' => 'Новый пароль',
+            'password' => 'пароль',
+            'next' => 'следующий'
         ]
     ],
 ];

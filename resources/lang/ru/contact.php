@@ -1,13 +1,13 @@
 <?php
 
 return [
-    'address' => 'Address',
-    'phone' => 'Phone',
+    'address' => 'адрес',
+    'phone' => 'телефон',
     'email' => 'E-mail',
     'website' => 'Website',
-    'title' => 'Contact Us',
-    'name' => 'Name',
-    'subject' => 'Subject',
-    'message' => 'Message',
-    'submit' => 'Wyślij'
+    'title' => 'контакты',
+    'name' => 'имя',
+    'subject' => 'тема',
+    'message' => 'сообщение',
+    'submit' => 'Отправить'
 ];

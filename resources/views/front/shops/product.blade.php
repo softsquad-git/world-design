@@ -11,7 +11,7 @@
             <div class="row no-gutters slider-text align-items-center justify-content-center">
                 <div class="col-md-9 ftco-animate text-center">
                     <h1 class="mb-0 bread">{{ $product->title }}</h1>
-                    <p class="breadcrumbs"><span class="mr-2"><a href="{{ route('home') }}">Strona główna</a></span> <span class="mr-2"><a href="{{ route('shops') }}">Sklep</a></span> <span>{{ $product->title }}</span></p>
+                    <p class="breadcrumbs"><span class="mr-2"><a href="{{ route('home') }}">@lang('navbar.home')</a></span> <span class="mr-2"><a href="{{ route('shops') }}">@lang('navbar.shop')</a></span> <span>{{ $product->title }}</span></p>
                 </div>
             </div>
         </div>

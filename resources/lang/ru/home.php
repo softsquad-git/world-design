@@ -1,6 +1,6 @@
 <?php
 
 return [
-    'more' => 'Czytaj więcej',
-    'testimony' => 'Opinie'
+    'more' => 'читать дальше',
+    'testimony' => 'отзывы'
 ];

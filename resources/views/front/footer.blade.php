@@ -11,7 +11,7 @@
             </div>
             <div class="col-md">
                 <div class="ftco-footer-widget mb-4 ml-md-5">
-                    <h2 class="ftco-heading-2">Menu</h2>
+                    <h2 class="ftco-heading-2">@lang('navbar.menu')</h2>
                     <ul class="list-unstyled">
                         @foreach(Page::getPagesTop()->slice(0, 4) as $page)
                             <li><a href="{{ route('page', ['alias' => $page->alias]) }}" class="py-2 d-block">{{ $page->title }}</a></li>
