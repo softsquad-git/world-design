@@ -44,7 +44,7 @@
                                         @if($product->status == Status::PRODUCT_STATUS_PROMO)
                                             <p class="price"><span class="mr-2 price-dc">${{ $product->old_price }}</span><span class="price-sale">${{ $product->price }}</span></p>
                                         @else
-                                            <p class="price"><span class="price-sale">${{ $product->price }}</span></p>
+                                            <p class="price"><span class="price-sale">{{ $product->price }}</span></p>
                                         @endif
                                     </div>
                                     <div class="rating">

@@ -28,9 +28,9 @@
                     <h3>{{ $product->title }}</h3>
                     <p class="price">
                         @if($product->status == Status::PRODUCT_STATUS_PROMO)
-                            <span class="mr-2"><s>${{ $product->old_price }}</s></span> <span>${{ $product->price }}</span>
+                            <span class="mr-2"><s>{{ $product->old_price }}</s></span> <span>{{ $product->price }}</span>
                         @else
-                            <span>${{ $product->price }}</span>
+                            <span>{{ $product->price }}</span>
                         @endif
                     </p>
                     {!! $product->description !!}

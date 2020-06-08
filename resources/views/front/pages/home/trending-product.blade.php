@@ -24,9 +24,9 @@
                                     <div class="d-flex">
                                         <div class="pricing">
                                             @if($row->status == Status::PRODUCT_STATUS_PROMO)
-                                                <p class="price"><span class="mr-2 price-dc">${{ $row->old_price }}</span><span class="price-sale">${{ $row->price }}</span></p>
+                                                <p class="price"><span class="mr-2 price-dc">{{ $row->old_price }}</span><span class="price-sale">{{ $row->price }}</span></p>
                                             @else
-                                                <p class="price"><span class="price-sale">${{ $row->price }}</span></p>
+                                                <p class="price"><span class="price-sale">{{ $row->price }}</span></p>
                                             @endif
                                         </div>
                                         <div class="rating">
