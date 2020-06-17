@@ -69,7 +69,7 @@
                             <div class="modal-body order-details">
                                 <p>
                                     Zamówienie zostało złożone: <span id="modal__created_at"></span>. <br/>
-                                    Łączna kwota zamówienia: $ <span id="modal__total_price"></span>. <br/>
+                                    Łączna kwota zamówienia: <span id="modal__total_price"></span>. <br/>
                                 </p>
                                 Zakupione produkty:
                                 <ul id="products">

@@ -54,10 +54,10 @@
             <label for="shipment">@lang('basket.shipment')</label>
             <select id="shipment" name="shipment" class="form-control">
                 <option value="" selected>@lang('basket.select_shipment')</option>
-                <option value="dpd_classic">Kurier DPD (przedpłata) ($ {{ Shipment::price('dpd_classic') }})</option>
-                <option value="dpd_download">Kurier DPD (pobranie) ($ {{ Shipment::price('dpd_download') }})</option>
-                <option value="inpost_classic">Paczkomat (przedpłata) ($ {{ Shipment::price('inpost_classic') }})</option>
-                <option value="inpost_download">Paczkomat (pobranie) ($ {{ Shipment::price('inpost_download') }})</option>
+                <option value="dpd_classic">Kurier DPD (przedpłata) ( {{ Shipment::price('dpd_classic') }})</option>
+                <option value="dpd_download">Kurier DPD (pobranie) ( {{ Shipment::price('dpd_download') }})</option>
+                <option value="inpost_classic">Paczkomat (przedpłata) ( {{ Shipment::price('inpost_classic') }})</option>
+                <option value="inpost_download">Paczkomat (pobranie) ( {{ Shipment::price('inpost_download') }})</option>
             </select>
         </div>
         <input type="hidden" name="inpost_number" id="inpost_number">

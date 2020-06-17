@@ -115,7 +115,7 @@
                         <h3>@lang('basket.order')</h3>
                         <p class="d-flex total-price">
                             <span>@lang('basket.total_price')</span>
-                            $ <span id="all_total_price">{{ $products->total_price }}</span>
+                             <span id="all_total_price">{{ $products->total_price }}</span>
                         </p>
                     </div>
                     <p id="ch-btn" class="text-center"><span class="btn btn-primary py-3 px-4">@lang('basket.submit')</span></p>
