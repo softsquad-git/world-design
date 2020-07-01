@@ -64,7 +64,7 @@
                                             {!! substr($product->product->description, 0, 100)  !!}
                                         </td>
 
-                                        <td class="price">${{ $product->product->price }}</td>
+                                        <td class="price">{{ $product->product->price }}</td>
 
                                         <td class="quantity">
                                             <div class="input-group mb-3">
@@ -75,7 +75,7 @@
                                             </div>
                                         </td>
 
-                                        <td class="total">$<span id="totalPrice">{{ $product->quantity * $product->product->price }}</span></td>
+                                        <td class="total"><span id="totalPrice">{{ $product->quantity * $product->product->price }}</span></td>
                                         <script>
                                             $('#quantity_{{ $product->id }}').change(function () {
                                                 var quantity = $('#quantity_{{ $product->id }}').val();
